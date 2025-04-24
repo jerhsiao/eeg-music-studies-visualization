@@ -30,19 +30,18 @@ This tool addresses this challenge by:
   - EEG System
   - Channel Count
 - **Standardized Channel Count Filtering**: Find all studies using a specific channel count regardless of variant descriptions
-- **Intelligent Search**: Full-text search across all study fields
+- **Search**: Full-text search across all study fields
 - **Visual Timeline Filtering**: See filtered studies highlighted directly on the timeline
-- **Smart Navigation**: When search matches exist outside current timeline view, easily navigate to them
 - **Detailed Study Cards**: View comprehensive information about each study with expandable details
 - **CSV Export**: Export filtered data for further analysis
 
-## Installation and Setup
+## Installation and Setup for Running Locally
 
 ### Prerequisites
 - Node.js (v14 or later)
 - npm (v6 or later)
 
-### Installation for Local Use
+### Installation
 
 1. Clone the repository:
    ```
@@ -106,35 +105,36 @@ The database follows a standardized schema with 29 columns:
 
 | Field | Description | Example |
 |-------|-------------|---------|
-| Study Name | Title of the study | "Emotional Processing of Musical Sounds" |
-| Authors | Study authors | "Smith, J., Jones, A." |
-| Year | Publication year | 2018 |
-| DOI/URL | Digital Object Identifier or web link | "10.1000/xyz123" |
-| Dataset | Link to public dataset if available | "https://openneuro.org/datasets/xyz" |
-| Study Description | Brief description of study purpose | "Investigation of neural responses to consonant vs. dissonant chords" |
-| Paradigm Type | Experimental paradigm | "Oddball", "Passive Listening" |
-| Stimulus Type | Category of musical stimulus | "Classical Music", "Isolated Chords" |
-| Stimulus Description | Detailed description of stimuli | "Piano recordings of major and minor triads" |
-| Composer | Composer of musical stimuli | "Bach", "Mozart" |
-| Passage Name | Name of musical piece used | "Prelude in C Major" |
-| Passage Length | Duration of stimuli | "45 seconds", "4:31" |
-| Musical Features Analyzed | Features examined | "Harmony", "Rhythm", "Timbre" |
-| Task Description | What participants were asked to do | "Press button when target tone heard" |
-| Number of Participants | Sample size | "32 participants" |
-| Demographics | Age range, gender, etc. | "18-25 years, 14 female, 16 male" |
-| Musical Training | Musical experience of participants | "Extensive Training (>10 years)" |
-| EEG System Used | Recording equipment | "BioSemi ActiveTwo" |
-| Channel Count | Number of EEG channels | "64 channels, 10-10 system" |
-| Sampling Rate | Recording sample rate | "512 Hz" |
-| Recording Environment | Where EEG was recorded | "Sound-attenuated chamber" |
-| Data Format | File format of recordings | ".bdf", ".edf" |
-| Preprocessing | Signal processing steps | "ICA, Band-pass filter 0.1-30Hz" |
-| EEG Analysis Techniques | Analysis methods | "ERP", "Time-frequency analysis" |
-| Statistical Tests | Statistical approaches | "ANOVA", "Cluster-based permutation" |
-| Event Markers | How events were marked | "MIDI triggers", "Manual annotation" |
-| Findings Summarized | Key results | "N400 component larger for unexpected chords" |
-| License | Data usage license | "CC-BY-4.0" |
-| Publication | Citation for published paper | "Journal of Neuroscience, 40(2), 123-145" |
+| Study Name | Title of the study | "Effect of Music and Biofeedback on Alpha Brainwave Rhythms and Attentiveness" |
+| Authors | Study authors | "Michael Wagner" |
+| Year | Publication year | 1975 |
+| DOI/URL | Digital Object Identifier or web link | "https://doi.org/10.2307/3345198" |
+| Dataset | Link to public dataset if available | "NA" |
+| Study Description | Brief description of study purpose | "This study investigates alpha rhythm production in musicians vs. nonmusicians during passive listening to two musical excerpts (slow and brisk tempo) and silence." |
+| Paradigm Type | Experimental paradigm | "Controlled" |
+| Stimulus Type | Category of musical stimulus | "Musical Excerpt" |
+| Stimulus Description | Detailed description of stimuli | "Slow tempo, orchestral" |
+| Composer | Composer of musical stimuli | "Camille Saint-Saëns" |
+| Passage Name | Name of musical piece used | "Saint-Saëns: Symphony No. 3 in C Minor, Op. 78 (2nd Movement)" |
+| Passage Length | Duration of stimuli | "2 minutes" |
+| Musical Features Analyzed | Features examined | "Tempo, Pulse, Cortical Activation (Alpha Rhythms), Attentiveness" |
+| Task Description | What participants were asked to do | "EEG-monitored passive listening with and without alpha biofeedback; subjects rated attentiveness after each excerpt" |
+| Number of Participants | Sample size | "60" |
+| Demographics | Age range, gender, etc. | "Undergraduate students from Florida State University; musicians and nonmusicians" |
+| Musical Training | Musical experience of participants | "Mixed Groups" |
+| EEG System Used | Recording equipment | "Aquarius Electronics 'Alphaphone Brainwave Analyzer'" |
+| Channel Count | Number of EEG channels | "19 channels, 10–20 system" |
+| Findings Summarized | Key results | "Musicians produced significantly more alpha than nonmusicians; no significant difference between musical stimuli or feedback condition; attentiveness ratings were higher for music than silence, but alpha rhythm did not correlate with attentiveness reports" |
+| Sampling Rate | Recording sample rate | "Not Reported" |
+| Recording Environment | Where EEG was recorded | "Sound-treated room at FSU School of Music" |
+| Data Format | File format of recordings | "Not Reported" |
+| Preprocessing | Signal processing steps | "Manual alpha duration timing using EEG-linked timer; no digital preprocessing reported" |
+| License | Data usage license | "Copyright by the Journal of Research in Music Education (MENC), 1975" |
+| EEG Analysis Techniques | Analysis methods | "Manual timing of alpha rhythm duration using EEG-linked digital timer" |
+| Statistical Tests | Statistical approaches | "Repeated-measures ANOVA" |
+| Event Markers | How events were marked | "Math problems used to block alpha before each aural condition" |
+| Publication | Citation for published paper | "Journal of Research in Music Education 23(1) 3-13" |
+
 
 ## Technical Implementation
 
@@ -142,7 +142,7 @@ The database follows a standardized schema with 29 columns:
 - React (JavaScript library for building user interfaces)
 - PapaParse (CSV parsing library)
 - Lodash (JavaScript utility library)
-- CSS3 (Styling with flexbox and grid for responsive layout)
+- CSS3 (Styling with flexbox and grid)
 
 ### Data Processing
 - CSV data is loaded asynchronously and parsed on application initialization
