@@ -12,7 +12,7 @@ The intersection of neuroscience and music has grown significantly as a research
 
 This tool addresses this challenge by:
 
-1. Aggregating data from 153 EEG-music studies in a standardized format
+1. Aggregating data from 36 EEG-music studies in a standardized format
 2. Providing intuitive visualization of temporal trends in research methods and topics
 3. Enabling detailed filtering and searching across multiple dimensions of study design
 4. Facilitating comparison of methodological approaches across similar studies
