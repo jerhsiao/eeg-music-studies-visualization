@@ -1,5 +1,7 @@
 # EEG Music Studies Database Visualization
 
+To use the app: https://eeg-music-studies-visualization.vercel.app/
+
 ## Introduction
 
 This project provides an interactive visualization interface for exploring a comprehensive database of electroencephalogram (EEG) studies related to music perception and cognition. It enables researchers, students, and music cognition enthusiasts to discover methodological approaches, experimental paradigms, and findings across different research studies spanning multiple decades.
