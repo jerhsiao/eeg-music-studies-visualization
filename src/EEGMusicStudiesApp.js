@@ -1765,7 +1765,7 @@ const EEGMusicStudiesApp = () => {
       {/* Results info bar */}
       <div className="results-info">
         <div className="results-count">
-          Found {filteredStudies.length} {filteredStudies.length === 1 ? 'study' : 'studies'}
+          Found {filteredStudies.length} {filteredStudies.length === 1 ? 'entry' : 'entries'}
           {searchQuery && ` matching "${searchQuery}"`}
           {Object.keys(activeFilters).length > 0 && ' with selected filters'}
         </div>
