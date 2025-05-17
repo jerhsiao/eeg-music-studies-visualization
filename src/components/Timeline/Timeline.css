@@ -1,0 +1,113 @@
+.timeline-section {
+  margin-bottom: var(--space-lg);
+}
+
+.current-year {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+.year-window {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+}
+
+.timeline-container {
+  position: relative;
+  padding: 10px 0 30px;
+  overflow: hidden;
+}
+
+.timeline-bar {
+  position: relative;
+  height: 100px;
+  background-color: var(--gray-200);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.year-tick {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tick-label {
+  margin-top: var(--space-xs);
+  font-size: var(--text-xs);
+  color: var(--gray-600);
+}
+
+.year-bar {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  background-color: var(--primary-light);
+  border-radius: 2px 2px 0 0;
+  transform: translateX(-50%);
+}
+
+.year-bar.selected {
+  background-color: var(--primary);
+}
+
+/* Style for the filtered bars - uses same positioning logic */
+.year-bar-filtered {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  background-color: var(--primary-dark);
+  border-radius: 2px 2px 0 0;
+  transform: translateX(-50%);
+  z-index: 2; /* Ensure filtered bars appear on top */
+}
+
+.year-bar-filtered.selected {
+  background-color: #1d4ed8; /* Darker blue for selected filtered bars */
+}
+
+.year-selector {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.selector-handle {
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  margin-bottom: var(--space-xs);
+  border: 2px solid white;
+  box-shadow: var(--shadow-sm);
+}
+
+.selector-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--primary-dark);
+  background-color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.year-window-highlight {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}

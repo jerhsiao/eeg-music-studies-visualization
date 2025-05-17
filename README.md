@@ -6,6 +6,8 @@ To use the app: https://eeg-music-studies-visualization.vercel.app/
 
 This project provides an interactive visualization interface for exploring a comprehensive database of electroencephalogram (EEG) studies related to music perception and cognition. It enables researchers, students, and music cognition enthusiasts to discover methodological approaches, experimental paradigms, and findings across different research studies spanning multiple decades.
 
+When browsing the visualization, you'll notice multiple study cards belonging to the same parent research but focusing on different experimental conditions. This choice emphasizes the unique characteristics of each experimental condition rather than merely the publication-level details.
+
 The visualization makes it easy to explore relationships between experimental designs, musical stimuli, participant profiles, and EEG methodologies through a user-friendly interface with powerful filtering and search capabilities.
 
 ## Background
@@ -14,7 +16,7 @@ The intersection of neuroscience and music has grown significantly as a research
 
 This tool addresses this challenge by:
 
-1. Aggregating data from 36 EEG-music studies in a standardized format
+1. Aggregating data from 41 EEG-music studies in a standardized format
 2. Providing intuitive visualization of temporal trends in research methods and topics
 3. Enabling detailed filtering and searching across multiple dimensions of study design
 4. Facilitating comparison of methodological approaches across similar studies
@@ -124,7 +126,7 @@ The database follows a standardized schema with 29 columns:
 | Musical Training | Musical experience of participants | "Mixed Groups" |
 | EEG System Used | Recording equipment | "Aquarius Electronics 'Alphaphone Brainwave Analyzer'" |
 | Channel Count | Number of EEG channels | "19 channels, 10–20 system" |
-| Findings Summarized | Key results | "Musicians produced significantly more alpha than nonmusicians; no significant difference between musical stimuli or feedback condition; attentiveness ratings were higher for music than silence, but alpha rhythm did not correlate with attentiveness reports" |
+| Findings | Key results | "Musicians produced significantly more alpha than nonmusicians; no significant difference between musical stimuli or feedback condition; attentiveness ratings were higher for music than silence, but alpha rhythm did not correlate with attentiveness reports" |
 | Sampling Rate | Recording sample rate | "Not Reported" |
 | Recording Environment | Where EEG was recorded | "Sound-treated room at FSU School of Music" |
 | Data Format | File format of recordings | "Not Reported" |
@@ -135,6 +137,20 @@ The database follows a standardized schema with 29 columns:
 | Event Markers | How events were marked | "Math problems used to block alpha before each aural condition" |
 | Publication | Citation for published paper | "Journal of Research in Music Education 23(1) 3-13" |
 
+## Code Structure
+
+The application is organized into modular components:
+
+- **Main**: Main application component that handles overall layout and rendering
+- **StudyCard**: Displays individual study information
+- **Timeline**: Interactive timeline visualization
+- **FilterComponents**: Handles filtering and search functionality
+
+### State Management
+
+- Uses React Context API (DataContext.js) to manage global state
+- Implements the reducer pattern (appReducer.js) for predictable state changes
+- Centralizes data processing and filtering logic
 
 ## Technical Implementation
 

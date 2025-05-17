@@ -1,0 +1,201 @@
+.studies-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .studies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .studies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Study cards */
+.study-card {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 580px;
+}
+
+.study-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.study-header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--gray-200);
+  background-color: var(--gray-50);
+}
+
+.study-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--gray-800);
+  line-height: 1.4;
+}
+
+.study-authors {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  margin-bottom: var(--space-sm);
+}
+
+.study-links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.study-link {
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--primary-bg);
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: var(--transition-standard);
+}
+
+.study-link:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.study-link.dataset {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-dark);
+}
+
+.study-link.dataset:hover {
+  background-color: var(--secondary-light);
+}
+
+.study-content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.study-description {
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-base);
+  color: var(--gray-700);
+}
+
+.stimulus-description {
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.findings {
+  background-color: var(--amber-100);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  font-size: var(--text-base);
+}
+
+.details-toggle {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  padding: 0;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  transition: var(--transition-standard);
+}
+
+.details-toggle:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.study-details {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--gray-200);
+}
+
+.detail-group {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.detail-group h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--gray-700);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-item {
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+}
+
+.detail-label {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--gray-600);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.license {
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+  border-top: 1px solid var(--gray-200);
+  padding-top: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+/* Feature tags */
+.study-features-section {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.features-heading {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-right: var(--space-sm);
+}
+
+.study-feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.study-feature-tag {
+  font-size: var(--text-xs);
+  background-color: var(--primary-bg);
+  color: var(--primary-dark);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}

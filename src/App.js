@@ -1,11 +1,16 @@
 import React from 'react';
-import './App.css';
-import EEGMusicStudiesApp from './EEGMusicStudiesApp';
+import Main from './components/Main/Main';
+import { DataProvider } from './utils/DataContext';
+import './styles/variables.css';
+import './styles/layout.css';
+import './styles/common.css';
 
 function App() {
   return (
     <div className="App">
-      <EEGMusicStudiesApp />
+      <DataProvider>
+        <Main />
+      </DataProvider>
     </div>
   );
 }
