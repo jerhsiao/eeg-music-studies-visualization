@@ -9,7 +9,6 @@
   padding: var(--space-lg);
 }
 
-/* Common layout patterns */
 .flexrow {
   display: flex;
   align-items: center;

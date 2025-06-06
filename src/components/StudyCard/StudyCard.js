@@ -28,11 +28,6 @@ const StudyCard = ({ study }) => {
       return `https://doi.org/${url}`;
     }
     
-    // Ensure URL has a protocol
-    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-      return `https://${url}`;
-    }
-    
     return url;
   };
   
@@ -62,14 +57,12 @@ const StudyCard = ({ study }) => {
   
   return (
     <div className="study-card">
-      {/* Primary Fields (Always Visible) */}
       <div className="study-header">
         <h3 className="study-title">
           {study['Study Name']} ({study.year})
         </h3>
         <p className="study-authors">Authors: {study.Authors}</p>
         
-        {/* Links to study and dataset */}
         <div className="study-links">
           {study['DOI/URL'] && (
             <a
@@ -94,24 +87,20 @@ const StudyCard = ({ study }) => {
       </div>
       
       <div className="study-content">
-        {/* Study Description */}
         {study['Study Description'] && (
           <p className="study-description">{study['Study Description']}</p>
         )}
         
-        {/* Stimulus Description */}
         {study['Stimulus Description'] && (
           <p className="stimulus-description">{study['Stimulus Description']}</p>
         )}
         
-        {/* Findings */}
         {study['Findings'] && (
           <div className="findings">
             <strong>Findings:</strong> {study['Findings']}
           </div>
         )}
         
-        {/* Feature Categories */}
         {getFeatureCategories().length > 0 && (
           <div className="study-features-section">
             <div className="study-feature-tags">
@@ -125,7 +114,6 @@ const StudyCard = ({ study }) => {
           </div>
         )}
         
-        {/* Expandable Details Button */}
         <button
           type="button"
           className="details-toggle"
@@ -136,21 +124,18 @@ const StudyCard = ({ study }) => {
         
         {isExpanded && (
           <div className="study-details">
-            {/* Publication Reference */}
             {study['Publication'] && (
               <div className="detail-item">
                 <span className="detail-label">Publication:</span> {study['Publication']}
               </div>
             )}
             
-            {/* Paradigm Type */}
             {study['Paradigm Type'] && (
               <div className="detail-item">
                 <span className="detail-label">Paradigm Type:</span> {formatList(study['Paradigm Type'])}
               </div>
             )}
             
-            {/* Stimulus Details */}
             {(study['Stimulus Type'] || study['Composer'] || study['Passage Name'] || study['Passage Length']) && (
               <div className="detail-group">
                 <h4>Stimulus Details</h4>
@@ -181,7 +166,6 @@ const StudyCard = ({ study }) => {
               </div>
             )}
             
-            {/* Musical Analysis */}
             {study['Musical Features Analyzed'] && (
               <div className="detail-group">
                 <h4>Musical Analysis</h4>
@@ -192,7 +176,6 @@ const StudyCard = ({ study }) => {
               </div>
             )}
             
-            {/* Participant Information */}
             {(study['Task Description'] || study['Number of Participants'] || 
               study['Demographics'] || study['Musical Training']) && (
               <div className="detail-group">
@@ -224,7 +207,6 @@ const StudyCard = ({ study }) => {
               </div>
             )}
             
-            {/* EEG Methodology */}
             {(study['EEG System Used'] || study['Channel Count'] || study['Sampling Rate'] || 
               study['Recording Environment'] || study['Data Format']) && (
               <div className="detail-group">
@@ -263,7 +245,6 @@ const StudyCard = ({ study }) => {
               </div>
             )}
             
-            {/* Analysis Methods */}
             {(study['Preprocessing'] || study['EEG Analysis Techniques'] || 
               study['Statistical Tests'] || study['Event Markers']) && (
               <div className="detail-group">
@@ -299,7 +280,6 @@ const StudyCard = ({ study }) => {
               </div>
             )}
             
-            {/* License Information */}
             {study['License'] && (
               <div className="detail-item license">
                 <span className="detail-label">License:</span> {study['License']}

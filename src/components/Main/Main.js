@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useData } from '../../utils/DataContext';
 import { ACTION_TYPES } from '../../utils/appReducer';
 import StudyCard from '../StudyCard/StudyCard';
-import Timeline from '../Timeline/Timeline';
+import Timeline from '../Timeline/TimelineContainer';
 import FilterContainer from '../FilterComponents/FilterComponents';
 import Papa from 'papaparse';
 import './Main.css';
@@ -11,8 +11,6 @@ const Main = () => {
   const { 
     loading, 
     error, 
-    viewMode, 
-    selectedYear,
     startYear,
     endYear,
     searchQuery,
@@ -23,39 +21,8 @@ const Main = () => {
     dispatch
   } = useData();
   
-  // Toggle view mode
-  const setViewMode = useCallback((mode) => {
-    dispatch({
-      type: ACTION_TYPES.SET_VIEW_MODE,
-      payload: mode
-    });
-  }, [dispatch]);
-  
-  // For list view
-  const handleStartYearChange = useCallback((e) => {
-    const value = parseInt(e.target.value);
-    if (!isNaN(value)) {
-      dispatch({
-        type: ACTION_TYPES.SET_START_YEAR,
-        payload: value
-      });
-    }
-  }, [dispatch]);
-  
-  // End year for list view
-  const handleEndYearChange = useCallback((e) => {
-    const value = parseInt(e.target.value);
-    if (!isNaN(value)) {
-      dispatch({
-        type: ACTION_TYPES.SET_END_YEAR,
-        payload: value
-      });
-    }
-  }, [dispatch]);
-  
-  // For matching studies outside existing range
   const findMatchingStudiesOutsideRange = useCallback(() => {
-    if (filteredStudies.length > 0) return null; // Already have results in view
+    if (filteredStudies.length > 0) return null;
     return studiesOutsideCurrentRange;
   }, [filteredStudies, studiesOutsideCurrentRange]);
   
@@ -63,30 +30,26 @@ const Main = () => {
     if (!outsideMatches || outsideMatches.length === 0) return;
     
     const targetYear = outsideMatches[0].year;
+    const buffer = 5;
+    const minYear = metadata?.yearRange?.min || 1970;
+    const maxYear = metadata?.yearRange?.max || 2025;
     
-    if (viewMode === 'timeline') {
-      dispatch({
-        type: ACTION_TYPES.SET_SELECTED_YEAR,
-        payload: targetYear
-      });
-    } else {
-      const buffer = 5; // Range of 5 years
-      const minYear = metadata?.yearRange?.min || 1970;
-      const maxYear = metadata?.yearRange?.max || 2025;
-      
-      dispatch({
-        type: ACTION_TYPES.SET_START_YEAR,
-        payload: Math.max(minYear, targetYear - buffer)
-      });
-      
-      dispatch({
-        type: ACTION_TYPES.SET_END_YEAR,
-        payload: Math.min(maxYear, targetYear + buffer)
-      });
-    }
-  }, [viewMode, metadata, dispatch]);
+    dispatch({
+      type: ACTION_TYPES.SET_SELECTED_YEAR,
+      payload: targetYear
+    });
+    
+    dispatch({
+      type: ACTION_TYPES.SET_START_YEAR,
+      payload: Math.max(minYear, targetYear - buffer)
+    });
+    
+    dispatch({
+      type: ACTION_TYPES.SET_END_YEAR,
+      payload: Math.min(maxYear, targetYear + buffer)
+    });
+  }, [metadata, dispatch]);
   
-  // Export filtered data to CSV
   const exportToCSV = useCallback(() => {
     if (!filteredStudies.length || !metadata) return;
 
@@ -100,32 +63,25 @@ const Main = () => {
             exportRow[column] = study[column];
           }
         } else {
-          exportRow[column] = ''; // Empty value for missing fields
+          exportRow[column] = '';
         }
       });
       
       return exportRow;
     });
     
-    // Generate CSV
     const csv = Papa.unparse({
       fields: metadata.columns,
       data: exportData
     });
     
-    // Download link
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
     
-    // To export filename
     let filename = 'eeg-music-studies';
-    if (viewMode === 'timeline') {
-      filename += `-year-${selectedYear}`;
-    } else {
-      filename += `-${startYear}-to-${endYear}`;
-    }
+    filename += `-${startYear}-to-${endYear}`;
     if (searchQuery) {
       filename += `-search-${searchQuery.replace(/\s+/g, '-')}`;
     }
@@ -135,8 +91,8 @@ const Main = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(url); // Clean up
-  }, [filteredStudies, metadata, viewMode, selectedYear, startYear, endYear, searchQuery]);
+    URL.revokeObjectURL(url);
+  }, [filteredStudies, metadata, startYear, endYear, searchQuery]);
   
   if (loading) {
     return (
@@ -183,11 +139,15 @@ const Main = () => {
           <div className="use-instructions">
             <div className="instruction-item">
               <span className="instruction-label">Timeline View:</span>
-              <span>Select a year to view studies within a ±5 year window</span>
+              <span>Timeline shows all years (1970-2025). Darker bars show studies in your selected range.</span>
             </div>
             <div className="instruction-item">
-              <span className="instruction-label">List View:</span>
-              <span>Set custom year range with start/end inputs</span>
+              <span className="instruction-label">Year Range:</span>
+              <span>Use Start/End Year controls to filter which studies appear in the cards below</span>
+            </div>
+            <div className="instruction-item">
+              <span className="instruction-label">Data Visualizer:</span>
+              <span>View studies broken down by different metrics with interactive bars</span>
             </div>
             <div className="instruction-item">
               <span className="instruction-label">Sorting:</span>
@@ -196,10 +156,6 @@ const Main = () => {
             <div className="instruction-item">
               <span className="instruction-label">Search:</span>
               <span>Find studies across all data fields</span>
-            </div>
-            <div className="instruction-item">
-              <span className="instruction-label">Filter:</span>
-              <span>Narrow results by paradigm type and other attributes</span>
             </div>
             <div className="instruction-item">
               <span className="instruction-label">Export:</span>
@@ -211,72 +167,26 @@ const Main = () => {
       
       <div className="controls-panel">
         <div className="controls-top">
-          <div className="view-toggle">
-            <button 
-              className={`toggle-btn ${viewMode === 'timeline' ? 'active' : ''}`}
-              onClick={() => setViewMode('timeline')}
-            >
-              Timeline View
-            </button>
-            <button 
-              className={`toggle-btn ${viewMode === 'list' ? 'active' : ''}`}
-              onClick={() => setViewMode('list')}
-            >
-              List View
-            </button>
-          </div>
-
           <button className="export-btn" onClick={exportToCSV}>
             Export to CSV
           </button>
         </div>
         
-        {viewMode === 'list' && metadata && (
-          <div className="year-range-inputs">
-            <div className="year-input-group">
-              <label htmlFor="start-year">Start Year:</label>
-              <input
-                id="start-year"
-                type="number"
-                min={metadata.yearRange.min}
-                max={endYear}
-                value={startYear}
-                onChange={handleStartYearChange}
-              />
-            </div>
-            <div className="year-input-group">
-              <label htmlFor="end-year">End Year:</label>
-              <input
-                id="end-year"
-                type="number"
-                min={startYear}
-                max={metadata.yearRange.max}
-                value={endYear}
-                onChange={handleEndYearChange}
-              />
-            </div>
-          </div>
-        )}
-        
-        {/* Filter Container - All filtering logic is here */}
         <FilterContainer />
       </div>
       
-      {viewMode === 'timeline' && (
-        <Timeline />
-      )}
+      <Timeline />
       
       <div className="results-info">
         <div className="results-count">
-          Found {filteredStudies.length} {filteredStudies.length === 1 ? 'entry' : 'entries'}
+          Found {filteredStudies.length} {filteredStudies.length === 1 ? 'entry ' : 'entries '} 
+          from {startYear} to {endYear}
           {searchQuery && ` matching "${searchQuery}"`}
           {Object.keys(activeFilters).length > 0 && ' with selected filters'}
         </div>
         
         <div className="results-range">
-          {viewMode === 'timeline' 
-            ? `Showing ${selectedYear - 5} to ${selectedYear + 5}` 
-            : `Showing ${startYear} to ${endYear}`}
+          Year Range: {startYear}-{endYear}
         </div>
       </div>
       
@@ -288,12 +198,11 @@ const Main = () => {
         </div>
       ) : (
         <div className="no-results">
-          <h3>No studies match your current criteria</h3>
+          <h3>No studies match your current criteria in the {startYear}-{endYear} range</h3>
           
-          {/* To check for matching studies outside current range */}
           {outsideRangeMatches && outsideRangeMatches.length > 0 && (
             <div className="outside-range-notification">
-              <p>Identified {outsideRangeMatches.length} matching {outsideRangeMatches.length === 1 ? 'study' : 'studies'} in a different time frame.</p>
+              <p>Found {outsideRangeMatches.length} matching {outsideRangeMatches.length === 1 ? 'study' : 'studies'} outside the {startYear}-{endYear} range.</p>
               <button 
                 className="navigate-to-match-btn"
                 onClick={() => navigateToMatchingStudy(outsideRangeMatches)}
@@ -303,7 +212,7 @@ const Main = () => {
             </div>
           )}
           
-          <p>Try adjusting your selected year, filters, or search term</p>
+          <p>Try adjusting your year range, filters, or search term</p>
           {(Object.keys(activeFilters).length > 0 || searchQuery) && (
             <button 
               className="reset-btn" 

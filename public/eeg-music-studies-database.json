@@ -31,7 +31,7 @@
       "Event Markers",
       "Publication"
     ],
-    "count": 194,
+    "count": 197,
     "yearRange": {
       "min": 1975,
       "max": 2025
@@ -44,7 +44,7 @@
       },
       {
         "name": "tempo",
-        "count": 70,
+        "count": 71,
         "percentage": 36
       },
       {
@@ -55,7 +55,7 @@
       {
         "name": "harmony",
         "count": 46,
-        "percentage": 24
+        "percentage": 23
       },
       {
         "name": "arousal",
@@ -64,8 +64,8 @@
       },
       {
         "name": "spectral",
-        "count": 39,
-        "percentage": 20
+        "count": 41,
+        "percentage": 21
       },
       {
         "name": "emotion",
@@ -93,6 +93,11 @@
         "percentage": 12
       },
       {
+        "name": "beta",
+        "count": 22,
+        "percentage": 11
+      },
+      {
         "name": "localization",
         "count": 22,
         "percentage": 11
@@ -103,27 +108,22 @@
         "percentage": 11
       },
       {
-        "name": "beta",
-        "count": 21,
-        "percentage": 11
-      },
-      {
         "name": "erp",
         "count": 19,
         "percentage": 10
       },
       {
         "name": "expectancy",
+        "count": 17,
+        "percentage": 9
+      },
+      {
+        "name": "envelope",
         "count": 16,
         "percentage": 8
       },
       {
         "name": "imagery",
-        "count": 15,
-        "percentage": 8
-      },
-      {
-        "name": "envelope",
         "count": 15,
         "percentage": 8
       },
@@ -134,8 +134,8 @@
       },
       {
         "name": "melody",
-        "count": 11,
-        "percentage": 6
+        "count": 13,
+        "percentage": 7
       },
       {
         "name": "attention",
@@ -1982,7 +1982,7 @@
     {
       "id": "study-33",
       "Study Name": "Brain Indices of Music Processing: \"Nonmusicians\" are Musical",
-      "Authors": "Koelsch et al.",
+      "Authors": "Koelsch, S., Gunter, T., Friederici, A. D., & Schröger, E.",
       "Year": 2000,
       "DOI/URL": "https://doi.org/10.1162/089892900562183",
       "Study Description": "EEG was recorded while nonmusicians listened to chord sequences with harmonic violations to assess ERPs related to expectancy.",
@@ -2039,7 +2039,7 @@
     {
       "id": "study-34",
       "Study Name": "Brain Indices of Music Processing: \"Nonmusicians\" are Musical",
-      "Authors": "Koelsch et al.",
+      "Authors": "Koelsch, S., Gunter, T., Friederici, A. D., & Schröger, E.",
       "Year": 2000,
       "DOI/URL": "https://doi.org/10.1162/089892900562183",
       "Study Description": "EEG was recorded while nonmusicians listened to chord sequences with harmonic violations to assess ERPs related to expectancy.",
@@ -2093,7 +2093,7 @@
     {
       "id": "study-35",
       "Study Name": "Brain Indices of Music Processing: \"Nonmusicians\" are Musical",
-      "Authors": "Koelsch et al.",
+      "Authors": "Koelsch, S., Gunter, T., Friederici, A. D., & Schröger, E.",
       "Year": 2000,
       "DOI/URL": "https://doi.org/10.1162/089892900562183",
       "Study Description": "EEG was recorded while nonmusicians listened to chord sequences with harmonic violations to assess ERPs related to expectancy.",
@@ -2149,7 +2149,7 @@
     {
       "id": "study-36",
       "Study Name": "Brain Indices of Music Processing: \"Nonmusicians\" are Musical",
-      "Authors": "Koelsch et al.",
+      "Authors": "Koelsch, S., Gunter, T., Friederici, A. D., & Schröger, E.",
       "Year": 2000,
       "DOI/URL": "https://doi.org/10.1162/089892900562183",
       "Study Description": "EEG was recorded while nonmusicians listened to chord sequences with harmonic violations to assess ERPs related to expectancy.",
@@ -2908,6 +2908,65 @@
     },
     {
       "id": "study-49",
+      "Study Name": "Pitch Discrimination Accuracy in Musicians vs Nonmusicians",
+      "Authors": "Mari Tervaniemi, Viola Just, Stefan Koelsch, Andreas Widmann, Erich Schröger",
+      "Year": 2005,
+      "DOI/URL": "https://doi.org/10.1007/s00221-004-2044-5",
+      "Study Description": "Investigated pitch discrimination abilities in musicians vs nonmusicians using both behavioral testing and EEG event-related potentials in response to pitch deviants.",
+      "Paradigm Type": [
+        "Controlled"
+      ],
+      "Stimulus Type": "Synthetic tones",
+      "Stimulus Description": "Complex tones (528 Hz standard and deviants at +0.76%, +2.1%, +4.2%) with 4 harmonics",
+      "Composer": "N/A",
+      "Passage Name": "N/A",
+      "Passage Length": "300 ms tones; 600 ms SOA",
+      "passageLengthSeconds": 300,
+      "Musical Features Analyzed": [
+        "Pitch discrimination; frequency deviance"
+      ],
+      "normalizedFeatures": [
+        "melody",
+        "spectral"
+      ],
+      "Task Description": "Oddball paradigm with 3 deviant conditions in passive reading (unattend) and active detection (attend); button press in attend condition",
+      "Number of Participants": "26",
+      "participantsValue": 26,
+      "Demographics": "13 musicians (mean age ~27.7), 13 nonmusicians (mean age ~21.9)",
+      "Musical Training": "Mixed Groups",
+      "EEG System Used": "SynAmps (NeuroScan)",
+      "Channel Count": "10 channels + mastoids + EOG",
+      "channelCountValue": 10,
+      "Findings": "Musicians had enhanced N2b and P3 amplitudes and better behavioral detection in attend condition; no MMN difference in unattend condition",
+      "Sampling Rate": "200 Hz",
+      "Recording Environment": "Electrically and acoustically shielded cabin",
+      "Data Format": "Not publicly provided",
+      "Preprocessing": [
+        "Band-pass 1–20 Hz",
+        "artifact rejection >100µV",
+        "mastoid referencing for MMN",
+        "nose reference for others"
+      ],
+      "License": "© Springer-Verlag 2004",
+      "EEG Analysis Techniques": [
+        "ERP components (MMN",
+        "P3a",
+        "N2b",
+        "P3); amplitude quantification in 40-ms windows"
+      ],
+      "Statistical Tests": [
+        "2-way and 3-way ANOVAs",
+        "post hoc t-tests",
+        "Greenhouse-Geisser correction"
+      ],
+      "Event Markers": [
+        "Deviant stimulus onset"
+      ],
+      "Publication": "Experimental Brain Research 161:1–10",
+      "year": 2005
+    },
+    {
+      "id": "study-50",
       "Study Name": "The Perception of Musical Phrase Structure: A Cross-Cultural ERP Study",
       "Authors": "Yun Nan, Thomas R. Knösche, Angela D. Friederici",
       "Year": 2006,
@@ -2965,7 +3024,7 @@
       "year": 2006
     },
     {
-      "id": "study-50",
+      "id": "study-51",
       "Study Name": "The Perception of Musical Phrase Structure: A Cross-Cultural ERP Study",
       "Authors": "Yun Nan, Thomas R. Knösche, Angela D. Friederici",
       "Year": 2006,
@@ -3023,7 +3082,7 @@
       "year": 2006
     },
     {
-      "id": "study-51",
+      "id": "study-52",
       "Study Name": "Effects of Unexpected Chords and of Performer’s Expression on Brain Responses and Electrodermal Activity",
       "Authors": "Stefan Koelsch, Simone Kilches, Nikolaus Steinbeis, Stefanie Schelinski",
       "Year": 2008,
@@ -3087,7 +3146,7 @@
       "year": 2008
     },
     {
-      "id": "study-52",
+      "id": "study-53",
       "Study Name": "Effects of Unexpected Chords and of Performer’s Expression on Brain Responses and Electrodermal Activity",
       "Authors": "Stefan Koelsch, Simone Kilches, Nikolaus Steinbeis, Stefanie Schelinski",
       "Year": 2008,
@@ -3151,7 +3210,7 @@
       "year": 2008
     },
     {
-      "id": "study-53",
+      "id": "study-54",
       "Study Name": "Effects of Unexpected Chords and of Performer’s Expression on Brain Responses and Electrodermal Activity",
       "Authors": "Stefan Koelsch, Simone Kilches, Nikolaus Steinbeis, Stefanie Schelinski",
       "Year": 2008,
@@ -3210,7 +3269,7 @@
       "year": 2008
     },
     {
-      "id": "study-54",
+      "id": "study-55",
       "Study Name": "Effects of Unexpected Chords and of Performer’s Expression on Brain Responses and Electrodermal Activity",
       "Authors": "Stefan Koelsch, Simone Kilches, Nikolaus Steinbeis, Stefanie Schelinski",
       "Year": 2008,
@@ -3269,7 +3328,7 @@
       "year": 2008
     },
     {
-      "id": "study-55",
+      "id": "study-56",
       "Study Name": "Effects of Unexpected Chords and of Performer’s Expression on Brain Responses and Electrodermal Activity",
       "Authors": "Stefan Koelsch, Simone Kilches, Nikolaus Steinbeis, Stefanie Schelinski",
       "Year": 2008,
@@ -3331,7 +3390,7 @@
       "year": 2008
     },
     {
-      "id": "study-56",
+      "id": "study-57",
       "Study Name": "Effects of Unexpected Chords and of Performer’s Expression on Brain Responses and Electrodermal Activity",
       "Authors": "Stefan Koelsch, Simone Kilches, Nikolaus Steinbeis, Stefanie Schelinski",
       "Year": 2008,
@@ -3393,7 +3452,7 @@
       "year": 2008
     },
     {
-      "id": "study-57",
+      "id": "study-58",
       "Study Name": "Single Trial Classification of EEG and Peripheral Physiological Signals for Recognition of Emotions Induced by Music Videos",
       "Authors": "Sander Koelstra, Ashkan Yazdani, Mohammad Soleymani, Christian Mühl, Jong-Seok Lee, Anton Nijholt, Thierry Pun, Touradj Ebrahimi, Ioannis Patras",
       "Year": 2010,
@@ -3468,7 +3527,7 @@
       "year": 2010
     },
     {
-      "id": "study-58",
+      "id": "study-59",
       "Study Name": "EEG-Based Emotion Recognition in Music Listening",
       "Authors": "Yuan-Pin Lin, Chi-Hong Wang, Tzyy-Ping Jung, Tien-Lin Wu, Shyh-Kang Jeng, Jeng-Ren Duann, Jyh-Horng Chen",
       "Year": 2010,
@@ -3542,7 +3601,7 @@
       "year": 2010
     },
     {
-      "id": "study-59",
+      "id": "study-60",
       "Study Name": "Tagging the Neuronal Entrainment to Beat and Meter",
       "Authors": "Sylvie Nozaradan, Isabelle Peretz, Marcus Missal, André Mouraux",
       "Year": 2011,
@@ -3601,7 +3660,7 @@
       "year": 2011
     },
     {
-      "id": "study-60",
+      "id": "study-61",
       "Study Name": "Tagging the Neuronal Entrainment to Beat and Meter",
       "Authors": "Sylvie Nozaradan, Isabelle Peretz, Marcus Missal, André Mouraux",
       "Year": 2011,
@@ -3660,7 +3719,7 @@
       "year": 2011
     },
     {
-      "id": "study-61",
+      "id": "study-62",
       "Study Name": "Tagging the Neuronal Entrainment to Beat and Meter",
       "Authors": "Sylvie Nozaradan, Isabelle Peretz, Marcus Missal, André Mouraux",
       "Year": 2011,
@@ -3718,7 +3777,7 @@
       "year": 2011
     },
     {
-      "id": "study-62",
+      "id": "study-63",
       "Study Name": "DEAP: A Dataset for Emotion Analysis using EEG, Physiological and Video Signals",
       "Authors": "Sander Koelstra, Christian Mühl, Mohammad Soleymani, Jong-Seok Lee, Ashkan Yazdani, Touradj Ebrahimi, Thierry Pun, Anton Nijholt, Ioannis Patras",
       "Year": 2012,
@@ -3785,7 +3844,61 @@
       "year": 2012
     },
     {
-      "id": "study-63",
+      "id": "study-64",
+      "Study Name": "Individual musical tempo preference correlates with EEG beta rhythm",
+      "Authors": "Bauer, Kreutz, Herrmann",
+      "Year": 2014,
+      "DOI/URL": "https://doi.org/10.1111/psyp.12375",
+      "Study Description": "This study explored whether an individual’s preferred tempo correlates with EEG features related to timing and motor processing, particularly beta oscillations.",
+      "Paradigm Type": [
+        "Controlled"
+      ],
+      "Stimulus Type": "Musical Excerpt",
+      "Stimulus Description": "6–12 s nonvocal rock music excerpts in 4/4 meter, no tempo or key changes",
+      "Composer": "Various",
+      "Passage Name": "Rock Music Excerpts",
+      "Passage Length": "6–12 seconds",
+      "passageLengthSeconds": 9,
+      "Musical Features Analyzed": [
+        "Tempo (bpm)",
+        "Preferred Tempo",
+        "Motor beta frequency"
+      ],
+      "normalizedFeatures": [
+        "beta",
+        "tempo",
+        "spectral"
+      ],
+      "Task Description": "Participants tapped and rated perceived tempo of music excerpts across multiple days; EEG recorded during separate tasks for alpha, gamma, and beta band analysis",
+      "Number of Participants": "12 (11 analyzed)",
+      "participantsValue": 12,
+      "Demographics": "Healthy young adults (21–28 yrs); 6F, right-handed",
+      "Musical Training": "Mixed (musical sophistication assessed via Gold-MSI)",
+      "EEG System Used": "BrainAmp (Brain Products)",
+      "Channel Count": "32 channels",
+      "channelCountValue": 32,
+      "Findings": "Preferred tempo significantly correlated with individual motor beta peak frequency (r = 0.71 estimated, r = 0.64 accurate); no correlation with IAF or eGBR",
+      "Sampling Rate": "500 Hz",
+      "Recording Environment": "Laboratory environment",
+      "Data Format": "EEG raw signal (0.1–250 Hz), auditory tasks delivered via headphones",
+      "Preprocessing": [
+        "Artifact rejection; ICA for artifact removal; band-pass filtering (1–40 Hz); FFT; Morlet wavelet transform"
+      ],
+      "License": "© 2014 Society for Psychophysiological Research",
+      "EEG Analysis Techniques": [
+        "Motor Beta (13–25 Hz); Evoked Gamma Band (30–80 Hz); Individual Alpha Frequency (8–12 Hz); FFT; ICA"
+      ],
+      "Statistical Tests": [
+        "Correlation analysis; repeated measures ANOVA"
+      ],
+      "Event Markers": [
+        "Button press (motor); tone onset (auditory); resting (eyes closed)"
+      ],
+      "Publication": "Psychophysiology, 52 (2015), 600–604",
+      "year": 2014
+    },
+    {
+      "id": "study-65",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -3849,7 +3962,7 @@
       "year": 2014
     },
     {
-      "id": "study-64",
+      "id": "study-66",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -3913,7 +4026,7 @@
       "year": 2014
     },
     {
-      "id": "study-65",
+      "id": "study-67",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -3977,7 +4090,7 @@
       "year": 2014
     },
     {
-      "id": "study-66",
+      "id": "study-68",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4041,7 +4154,7 @@
       "year": 2014
     },
     {
-      "id": "study-67",
+      "id": "study-69",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4105,7 +4218,7 @@
       "year": 2014
     },
     {
-      "id": "study-68",
+      "id": "study-70",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4169,7 +4282,7 @@
       "year": 2014
     },
     {
-      "id": "study-69",
+      "id": "study-71",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4233,7 +4346,7 @@
       "year": 2014
     },
     {
-      "id": "study-70",
+      "id": "study-72",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4297,7 +4410,7 @@
       "year": 2014
     },
     {
-      "id": "study-71",
+      "id": "study-73",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4361,7 +4474,7 @@
       "year": 2014
     },
     {
-      "id": "study-72",
+      "id": "study-74",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4425,7 +4538,7 @@
       "year": 2014
     },
     {
-      "id": "study-73",
+      "id": "study-75",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4489,7 +4602,7 @@
       "year": 2014
     },
     {
-      "id": "study-74",
+      "id": "study-76",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4553,7 +4666,7 @@
       "year": 2014
     },
     {
-      "id": "study-75",
+      "id": "study-77",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4617,7 +4730,7 @@
       "year": 2014
     },
     {
-      "id": "study-76",
+      "id": "study-78",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4681,7 +4794,7 @@
       "year": 2014
     },
     {
-      "id": "study-77",
+      "id": "study-79",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4745,7 +4858,7 @@
       "year": 2014
     },
     {
-      "id": "study-78",
+      "id": "study-80",
       "Study Name": "Neural correlates of emotional responses to music: An EEG study",
       "Authors": "Ian Daly, Asad Malik, Faustina Hwang, Etienne Roesch, James Weaver, Alexis Kirke, Duncan Williams, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2014,
@@ -4809,7 +4922,7 @@
       "year": 2014
     },
     {
-      "id": "study-79",
+      "id": "study-81",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -4869,7 +4982,7 @@
       "year": 2015
     },
     {
-      "id": "study-80",
+      "id": "study-82",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -4929,7 +5042,7 @@
       "year": 2015
     },
     {
-      "id": "study-81",
+      "id": "study-83",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -4989,7 +5102,7 @@
       "year": 2015
     },
     {
-      "id": "study-82",
+      "id": "study-84",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5049,7 +5162,7 @@
       "year": 2015
     },
     {
-      "id": "study-83",
+      "id": "study-85",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5109,7 +5222,7 @@
       "year": 2015
     },
     {
-      "id": "study-84",
+      "id": "study-86",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5169,7 +5282,7 @@
       "year": 2015
     },
     {
-      "id": "study-85",
+      "id": "study-87",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5229,7 +5342,7 @@
       "year": 2015
     },
     {
-      "id": "study-86",
+      "id": "study-88",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5289,7 +5402,7 @@
       "year": 2015
     },
     {
-      "id": "study-87",
+      "id": "study-89",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5349,7 +5462,7 @@
       "year": 2015
     },
     {
-      "id": "study-88",
+      "id": "study-90",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5409,7 +5522,7 @@
       "year": 2015
     },
     {
-      "id": "study-89",
+      "id": "study-91",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5469,7 +5582,7 @@
       "year": 2015
     },
     {
-      "id": "study-90",
+      "id": "study-92",
       "Study Name": "OPENMIIR: A Public Dataset of EEG Recordings During Music Perception and Imagination",
       "Authors": "Sebastian Stober, Avital Sternin, Adrian M. Owen, Jessica A. Grahn",
       "Year": 2015,
@@ -5529,7 +5642,7 @@
       "year": 2015
     },
     {
-      "id": "study-91",
+      "id": "study-93",
       "Study Name": "Event-Related Brain Responses While Listening to Entire Pieces of Music",
       "Authors": "H. Poikonen, V. Alluri, E. Brattico, O. Lartillot, M. Tervaniemi, M. Huotilainen",
       "Year": 2016,
@@ -5597,7 +5710,7 @@
       "year": 2016
     },
     {
-      "id": "study-92",
+      "id": "study-94",
       "Study Name": "Event-Related Brain Responses While Listening to Entire Pieces of Music",
       "Authors": "H. Poikonen, V. Alluri, E. Brattico, O. Lartillot, M. Tervaniemi, M. Huotilainen",
       "Year": 2016,
@@ -5665,7 +5778,7 @@
       "year": 2016
     },
     {
-      "id": "study-93",
+      "id": "study-95",
       "Study Name": "Event-Related Brain Responses While Listening to Entire Pieces of Music",
       "Authors": "H. Poikonen, V. Alluri, E. Brattico, O. Lartillot, M. Tervaniemi, M. Huotilainen",
       "Year": 2016,
@@ -5733,7 +5846,7 @@
       "year": 2016
     },
     {
-      "id": "study-94",
+      "id": "study-96",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -5796,7 +5909,7 @@
       "year": 2017
     },
     {
-      "id": "study-95",
+      "id": "study-97",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -5859,7 +5972,7 @@
       "year": 2017
     },
     {
-      "id": "study-96",
+      "id": "study-98",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -5922,7 +6035,7 @@
       "year": 2017
     },
     {
-      "id": "study-97",
+      "id": "study-99",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -5985,7 +6098,7 @@
       "year": 2017
     },
     {
-      "id": "study-98",
+      "id": "study-100",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -6048,7 +6161,7 @@
       "year": 2017
     },
     {
-      "id": "study-99",
+      "id": "study-101",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -6111,7 +6224,7 @@
       "year": 2017
     },
     {
-      "id": "study-100",
+      "id": "study-102",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -6174,7 +6287,7 @@
       "year": 2017
     },
     {
-      "id": "study-101",
+      "id": "study-103",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -6237,7 +6350,7 @@
       "year": 2017
     },
     {
-      "id": "study-102",
+      "id": "study-104",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -6300,7 +6413,7 @@
       "year": 2017
     },
     {
-      "id": "study-103",
+      "id": "study-105",
       "Study Name": "NMED-T: A Tempo-Focused Dataset of Cortical and Behavioral Responses to Naturalistic Music",
       "Authors": "Steven Losorelli, Duc T. Nguyen, Jacek P. Dmochowski, Blair Kaneshiro",
       "Year": 2017,
@@ -6363,7 +6476,7 @@
       "year": 2017
     },
     {
-      "id": "study-104",
+      "id": "study-106",
       "Study Name": "Neural Tracking of the Musical Beat is Enhanced by Low-Frequency Sounds",
       "Authors": "Lenc, Keller, Varlet, Nozaradan",
       "Year": 2018,
@@ -6425,7 +6538,7 @@
       "year": 2018
     },
     {
-      "id": "study-105",
+      "id": "study-107",
       "Study Name": "Neural Tracking of the Musical Beat is Enhanced by Low-Frequency Sounds",
       "Authors": "Lenc, Keller, Varlet, Nozaradan",
       "Year": 2018,
@@ -6487,7 +6600,7 @@
       "year": 2018
     },
     {
-      "id": "study-106",
+      "id": "study-108",
       "Study Name": "Neural Tracking of the Musical Beat is Enhanced by Low-Frequency Sounds",
       "Authors": "Lenc, Keller, Varlet, Nozaradan",
       "Year": 2018,
@@ -6549,7 +6662,7 @@
       "year": 2018
     },
     {
-      "id": "study-107",
+      "id": "study-109",
       "Study Name": "NMED-RP Naturalistic Music EEG Dataset – Rhythm Pilot",
       "Authors": "Appaji, Jay, Kaneshiro, Blair",
       "Year": 2018,
@@ -6607,7 +6720,7 @@
       "year": 2018
     },
     {
-      "id": "study-108",
+      "id": "study-110",
       "Study Name": "Rhesus Monkeys (Macaca mulatta) Sense Isochrony in Rhythm, but Not the Beat: Additional Support for the Gradual Audiomotor Evolution Hypothesis",
       "Authors": "Henkjan Honing, Fleur Bouwer, Gámez José, Hugo Merchant",
       "Year": 2018,
@@ -6668,7 +6781,7 @@
       "year": 2018
     },
     {
-      "id": "study-109",
+      "id": "study-111",
       "Study Name": "Rhesus Monkeys (Macaca mulatta) Sense Isochrony in Rhythm, but Not the Beat: Additional Support for the Gradual Audiomotor Evolution Hypothesis",
       "Authors": "Henkjan Honing, Fleur Bouwer, Gámez José, Hugo Merchant",
       "Year": 2018,
@@ -6729,7 +6842,7 @@
       "year": 2018
     },
     {
-      "id": "study-110",
+      "id": "study-112",
       "Study Name": "NMED-H 2.0: Naturalistic Music EEG Dataset—Hindi",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Dmochowski, Jacek P., Norcia, Anthony M., and Berger, Jonathan",
       "Year": 2019,
@@ -6792,7 +6905,7 @@
       "year": 2019
     },
     {
-      "id": "study-111",
+      "id": "study-113",
       "Study Name": "NMED-H 2.0: Naturalistic Music EEG Dataset—Hindi",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Dmochowski, Jacek P., Norcia, Anthony M., and Berger, Jonathan",
       "Year": 2019,
@@ -6853,7 +6966,7 @@
       "year": 2019
     },
     {
-      "id": "study-112",
+      "id": "study-114",
       "Study Name": "NMED-H 2.0: Naturalistic Music EEG Dataset—Hindi",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Dmochowski, Jacek P., Norcia, Anthony M., and Berger, Jonathan",
       "Year": 2019,
@@ -6913,7 +7026,7 @@
       "year": 2019
     },
     {
-      "id": "study-113",
+      "id": "study-115",
       "Study Name": "NMED-H 2.0: Naturalistic Music EEG Dataset—Hindi",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Dmochowski, Jacek P., Norcia, Anthony M., and Berger, Jonathan",
       "Year": 2019,
@@ -6973,7 +7086,7 @@
       "year": 2019
     },
     {
-      "id": "study-114",
+      "id": "study-116",
       "Study Name": "MAD-EEG: an EEG dataset for decoding auditory attention to a target instrument in polyphonic music",
       "Authors": "Giorgia Cantisani, Gabriel Trégoat, Slim Essid, Gaël Richard",
       "Year": 2019,
@@ -7033,7 +7146,7 @@
       "year": 2019
     },
     {
-      "id": "study-115",
+      "id": "study-117",
       "Study Name": "MAD-EEG: an EEG dataset for decoding auditory attention to a target instrument in polyphonic music",
       "Authors": "Giorgia Cantisani, Gabriel Trégoat, Slim Essid, Gaël Richard",
       "Year": 2019,
@@ -7093,7 +7206,7 @@
       "year": 2019
     },
     {
-      "id": "study-116",
+      "id": "study-118",
       "Study Name": "MAD-EEG: an EEG dataset for decoding auditory attention to a target instrument in polyphonic music",
       "Authors": "Giorgia Cantisani, Gabriel Trégoat, Slim Essid, Gaël Richard",
       "Year": 2019,
@@ -7153,7 +7266,7 @@
       "year": 2019
     },
     {
-      "id": "study-117",
+      "id": "study-119",
       "Study Name": "MAD-EEG: an EEG dataset for decoding auditory attention to a target instrument in polyphonic music",
       "Authors": "Giorgia Cantisani, Gabriel Trégoat, Slim Essid, Gaël Richard",
       "Year": 2019,
@@ -7213,7 +7326,7 @@
       "year": 2019
     },
     {
-      "id": "study-118",
+      "id": "study-120",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
@@ -7272,12 +7385,12 @@
       "year": 2019
     },
     {
-      "id": "study-119",
+      "id": "study-121",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7329,12 +7442,12 @@
       "year": 2019
     },
     {
-      "id": "study-120",
+      "id": "study-122",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7386,12 +7499,12 @@
       "year": 2019
     },
     {
-      "id": "study-121",
+      "id": "study-123",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7440,12 +7553,12 @@
       "year": 2019
     },
     {
-      "id": "study-122",
+      "id": "study-124",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7464,7 +7577,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7494,12 +7607,12 @@
       "year": 2019
     },
     {
-      "id": "study-123",
+      "id": "study-125",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7518,7 +7631,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7549,12 +7662,12 @@
       "year": 2019
     },
     {
-      "id": "study-124",
+      "id": "study-126",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7573,7 +7686,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7603,12 +7716,12 @@
       "year": 2019
     },
     {
-      "id": "study-125",
+      "id": "study-127",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7627,7 +7740,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7658,12 +7771,12 @@
       "year": 2019
     },
     {
-      "id": "study-126",
+      "id": "study-128",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7682,7 +7795,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7713,12 +7826,12 @@
       "year": 2019
     },
     {
-      "id": "study-127",
+      "id": "study-129",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7737,7 +7850,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7767,12 +7880,12 @@
       "year": 2019
     },
     {
-      "id": "study-128",
+      "id": "study-130",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7791,7 +7904,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7821,12 +7934,12 @@
       "year": 2019
     },
     {
-      "id": "study-129",
+      "id": "study-131",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7845,7 +7958,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7875,12 +7988,12 @@
       "year": 2019
     },
     {
-      "id": "study-130",
+      "id": "study-132",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7899,7 +8012,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7929,12 +8042,12 @@
       "year": 2019
     },
     {
-      "id": "study-131",
+      "id": "study-133",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -7953,7 +8066,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -7983,12 +8096,12 @@
       "year": 2019
     },
     {
-      "id": "study-132",
+      "id": "study-134",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -8007,7 +8120,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -8037,12 +8150,12 @@
       "year": 2019
     },
     {
-      "id": "study-133",
+      "id": "study-135",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -8061,7 +8174,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -8091,12 +8204,12 @@
       "year": 2019
     },
     {
-      "id": "study-134",
+      "id": "study-136",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -8115,7 +8228,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -8145,12 +8258,12 @@
       "year": 2019
     },
     {
-      "id": "study-135",
+      "id": "study-137",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -8169,7 +8282,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -8199,12 +8312,12 @@
       "year": 2019
     },
     {
-      "id": "study-136",
+      "id": "study-138",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -8223,7 +8336,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -8253,12 +8366,12 @@
       "year": 2019
     },
     {
-      "id": "study-137",
+      "id": "study-139",
       "Study Name": "Music synchronizes brainwaves across listeners with strong effects of repetition, familiarity, and training",
       "Authors": "Jens Madsen, Elizabeth Hellmuth Margulis, Rhimmon Simchy-Gross, Lucas C. Parra",
       "Year": 2019,
       "DOI/URL": "https://doi.org/10.1038/s41598-019-40254-w",
-      "Study Description": "Same as above",
+      "Study Description": "This study measured inter-subject correlation (ISC) of EEG responses to repeated listening of classical instrumental music, investigating effects of repetition, familiarity, and musical training on neural synchrony.",
       "Paradigm Type": [
         "Controlled"
       ],
@@ -8277,7 +8390,7 @@
         "coherence",
         "synchronization"
       ],
-      "Task Description": "Same as above",
+      "Task Description": "EEG-monitored passive listening; repeated exposure; attention/distract manipulation",
       "Number of Participants": "20",
       "participantsValue": 20,
       "Demographics": "University students, ages 18–34, mixed gender",
@@ -8307,8 +8420,63 @@
       "year": 2019
     },
     {
-      "id": "study-138",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-140",
+      "Study Name": "Cortical encoding of melodic expectations in human temporal cortex",
+      "Authors": "Di Liberto, Pelofi, Bianco, Patel, Mehta, Herrero, de Cheveigné, Shamma, Mesgarani",
+      "Year": 2020,
+      "DOI/URL": "https://doi.org/10.5061/dryad.g1jwstqmh",
+      "Dataset": "https://doi.org/10.5061/dryad.g1jwstqmh",
+      "Study Description": "Examines how melodic expectations are encoded in low-rate cortical EEG responses using monophonic instrumental music. Naturalistic listening with computational modeling of melodic surprise and entropy.",
+      "Paradigm Type": [
+        "Controlled"
+      ],
+      "Stimulus Type": "Musical Excerpt",
+      "Stimulus Description": "10 monophonic Bach excerpts synthesized as piano MIDI from violin and flute partitas",
+      "Composer": "J.S. Bach",
+      "Passage Name": "BWV 1001, 1002, 1004, 1006; BWV 1013",
+      "Passage Length": "~150 seconds per excerpt",
+      "passageLengthSeconds": 150,
+      "Musical Features Analyzed": [
+        "Melodic surprise",
+        "melodic entropy",
+        "envelope tracking"
+      ],
+      "normalizedFeatures": [
+        "melody",
+        "expectancy",
+        "envelope"
+      ],
+      "Task Description": "Passive listening; subjects fixated visually while listening to 30 trials (10 excerpts × 3 repetitions)",
+      "Number of Participants": "20",
+      "participantsValue": 20,
+      "Demographics": "Healthy adults (10 musicians with formal training, 10 non-musicians), ages 23–42",
+      "Musical Training": "Mixed groups",
+      "EEG System Used": "BioSemi ActiveTwo",
+      "Channel Count": "64 channels",
+      "channelCountValue": 64,
+      "Findings": "EEG responses reflected encoding of melodic expectations; musicians had stronger prediction correlations; TRF amplitudes were modulated by melodic surprise",
+      "Sampling Rate": "512 Hz",
+      "Recording Environment": "Sound-attenuated room",
+      "Data Format": "Analog EEG traces",
+      "Preprocessing": [
+        "1–8 Hz Butterworth filter; downsampled to 64 Hz; bad channels interpolated; mastoid average referencing"
+      ],
+      "License": "Open Access (Dryad)",
+      "EEG Analysis Techniques": [
+        "mTRF; ERP analysis; linear regression"
+      ],
+      "Statistical Tests": [
+        "Permutation tests; ANOVA; FDR correction"
+      ],
+      "Event Markers": [
+        "Note onsets aligned; trials repeated 3×"
+      ],
+      "Publication": "eLife",
+      "year": 2020
+    },
+    {
+      "id": "study-141",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8358,8 +8526,8 @@
       "year": 2020
     },
     {
-      "id": "study-139",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-142",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8409,8 +8577,8 @@
       "year": 2020
     },
     {
-      "id": "study-140",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-143",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8460,8 +8628,8 @@
       "year": 2020
     },
     {
-      "id": "study-141",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-144",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8511,8 +8679,8 @@
       "year": 2020
     },
     {
-      "id": "study-142",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-145",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8562,8 +8730,8 @@
       "year": 2020
     },
     {
-      "id": "study-143",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-146",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8613,8 +8781,8 @@
       "year": 2020
     },
     {
-      "id": "study-144",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-147",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8664,8 +8832,8 @@
       "year": 2020
     },
     {
-      "id": "study-145",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-148",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8715,8 +8883,8 @@
       "year": 2020
     },
     {
-      "id": "study-146",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-149",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8766,8 +8934,8 @@
       "year": 2020
     },
     {
-      "id": "study-147",
-      "Study Name": "Cortical Tracking of Acoustic Envelope during Naturalistic Music Listening",
+      "id": "study-150",
+      "Study Name": "Musical Expertise Enhances the Cortical Tracking of the Acoustic Envelope During Naturalistic Music Listening",
       "Authors": "Di Liberto, Pelofi, Shamma, de Cheveigné",
       "Year": 2020,
       "DOI/URL": "https://doi.org/10.1250/ast.41.361",
@@ -8817,7 +8985,7 @@
       "year": 2020
     },
     {
-      "id": "study-148",
+      "id": "study-151",
       "Study Name": "Natural music evokes correlated EEG responses reflecting temporal structure and beat",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Norcia, Anthony M., Dmochowski, Jacek P., Berger, Jonathan",
       "Year": 2020,
@@ -8887,7 +9055,7 @@
       "year": 2020
     },
     {
-      "id": "study-149",
+      "id": "study-152",
       "Study Name": "Natural music evokes correlated EEG responses reflecting temporal structure and beat",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Norcia, Anthony M., Dmochowski, Jacek P., Berger, Jonathan",
       "Year": 2020,
@@ -8957,7 +9125,7 @@
       "year": 2020
     },
     {
-      "id": "study-150",
+      "id": "study-153",
       "Study Name": "Natural music evokes correlated EEG responses reflecting temporal structure and beat",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Norcia, Anthony M., Dmochowski, Jacek P., Berger, Jonathan",
       "Year": 2020,
@@ -9027,7 +9195,7 @@
       "year": 2020
     },
     {
-      "id": "study-151",
+      "id": "study-154",
       "Study Name": "Natural music evokes correlated EEG responses reflecting temporal structure and beat",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Norcia, Anthony M., Dmochowski, Jacek P., Berger, Jonathan",
       "Year": 2020,
@@ -9097,7 +9265,7 @@
       "year": 2020
     },
     {
-      "id": "study-152",
+      "id": "study-155",
       "Study Name": "Neural and physiological data from participants listening to affective music",
       "Authors": "Ian Daly, Nicoletta Nicolaou, Duncan Williams, Faustina Hwang, Alexis Kirke, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2020,
@@ -9160,7 +9328,7 @@
       "year": 2020
     },
     {
-      "id": "study-153",
+      "id": "study-156",
       "Study Name": "Neural and physiological data from participants listening to affective music",
       "Authors": "Ian Daly, Nicoletta Nicolaou, Duncan Williams, Faustina Hwang, Alexis Kirke, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2020,
@@ -9222,7 +9390,7 @@
       "year": 2020
     },
     {
-      "id": "study-154",
+      "id": "study-157",
       "Study Name": "Neural and physiological data from participants listening to affective music",
       "Authors": "Ian Daly, Nicoletta Nicolaou, Duncan Williams, Faustina Hwang, Alexis Kirke, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2020,
@@ -9280,7 +9448,7 @@
       "year": 2020
     },
     {
-      "id": "study-155",
+      "id": "study-158",
       "Study Name": "Neural and physiological data from participants listening to affective music",
       "Authors": "Ian Daly, Nicoletta Nicolaou, Duncan Williams, Faustina Hwang, Alexis Kirke, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2020,
@@ -9336,7 +9504,7 @@
       "year": 2020
     },
     {
-      "id": "study-156",
+      "id": "study-159",
       "Study Name": "Neural and physiological data from participants listening to affective music",
       "Authors": "Ian Daly, Nicoletta Nicolaou, Duncan Williams, Faustina Hwang, Alexis Kirke, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2020,
@@ -9396,7 +9564,7 @@
       "year": 2020
     },
     {
-      "id": "study-157",
+      "id": "study-160",
       "Study Name": "Neural and physiological data from participants listening to affective music",
       "Authors": "Ian Daly, Nicoletta Nicolaou, Duncan Williams, Faustina Hwang, Alexis Kirke, Eduardo Miranda, Slawomir J. Nasuto",
       "Year": 2020,
@@ -9455,7 +9623,7 @@
       "year": 2020
     },
     {
-      "id": "study-158",
+      "id": "study-161",
       "Study Name": "NMED-M Naturalistic Music EEG Dataset - Minimalism | Inter-Subject Correlation during New Music Listening: A Study of Electrophysiological and Behavioral Responses to Steve Reich’s Piano Phase",
       "Authors": "Dauer, Tysen, Nguyen, Duc T., Gang, Nick, Dmochowski, Jacek P., Berger, Jonathan, Kaneshiro, Blair",
       "Year": 2021,
@@ -9519,7 +9687,7 @@
       "year": 2021
     },
     {
-      "id": "study-159",
+      "id": "study-162",
       "Study Name": "NMED-M Naturalistic Music EEG Dataset - Minimalism | Inter-Subject Correlation during New Music Listening: A Study of Electrophysiological and Behavioral Responses to Steve Reich’s Piano Phase",
       "Authors": "Dauer, Tysen, Nguyen, Duc T., Gang, Nick, Dmochowski, Jacek P., Berger, Jonathan, Kaneshiro, Blair",
       "Year": 2021,
@@ -9581,7 +9749,7 @@
       "year": 2021
     },
     {
-      "id": "study-160",
+      "id": "study-163",
       "Study Name": "NMED-M Naturalistic Music EEG Dataset - Minimalism | Inter-Subject Correlation during New Music Listening: A Study of Electrophysiological and Behavioral Responses to Steve Reich’s Piano Phase",
       "Authors": "Dauer, Tysen, Nguyen, Duc T., Gang, Nick, Dmochowski, Jacek P., Berger, Jonathan, Kaneshiro, Blair",
       "Year": 2021,
@@ -9643,7 +9811,7 @@
       "year": 2021
     },
     {
-      "id": "study-161",
+      "id": "study-164",
       "Study Name": "NMED-M Naturalistic Music EEG Dataset - Minimalism | Inter-Subject Correlation during New Music Listening: A Study of Electrophysiological and Behavioral Responses to Steve Reich’s Piano Phase",
       "Authors": "Dauer, Tysen, Nguyen, Duc T., Gang, Nick, Dmochowski, Jacek P., Berger, Jonathan, Kaneshiro, Blair",
       "Year": 2021,
@@ -9705,7 +9873,7 @@
       "year": 2021
     },
     {
-      "id": "study-162",
+      "id": "study-165",
       "Study Name": "NMED-M Naturalistic Music EEG Dataset - Minimalism | Inter-Subject Correlation during New Music Listening: A Study of Electrophysiological and Behavioral Responses to Steve Reich’s Piano Phase",
       "Authors": "Dauer, Tysen, Nguyen, Duc T., Gang, Nick, Dmochowski, Jacek P., Berger, Jonathan, Kaneshiro, Blair",
       "Year": 2021,
@@ -9768,7 +9936,7 @@
       "year": 2021
     },
     {
-      "id": "study-163",
+      "id": "study-166",
       "Study Name": "The Effect of Music Listening on EEG Functional Connectivity of Brain: A Short-Duration and Long-Duration Study",
       "Authors": "Danyal Mahmood, Humaira Nisar, Vooi Voon Yap, Chi-Yi Tsai",
       "Year": 2022,
@@ -9831,7 +9999,7 @@
       "year": 2022
     },
     {
-      "id": "study-164",
+      "id": "study-167",
       "Study Name": "The Effect of Music Listening on EEG Functional Connectivity of Brain: A Short-Duration and Long-Duration Study",
       "Authors": "Danyal Mahmood, Humaira Nisar, Vooi Voon Yap, Chi-Yi Tsai",
       "Year": 2022,
@@ -9893,7 +10061,7 @@
       "year": 2022
     },
     {
-      "id": "study-165",
+      "id": "study-168",
       "Study Name": "The Effect of Music Listening on EEG Functional Connectivity of Brain: A Short-Duration and Long-Duration Study",
       "Authors": "Danyal Mahmood, Humaira Nisar, Vooi Voon Yap, Chi-Yi Tsai",
       "Year": 2022,
@@ -9955,7 +10123,7 @@
       "year": 2022
     },
     {
-      "id": "study-166",
+      "id": "study-169",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10020,7 +10188,7 @@
       "year": 2023
     },
     {
-      "id": "study-167",
+      "id": "study-170",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10085,7 +10253,7 @@
       "year": 2023
     },
     {
-      "id": "study-168",
+      "id": "study-171",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10150,7 +10318,7 @@
       "year": 2023
     },
     {
-      "id": "study-169",
+      "id": "study-172",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10215,7 +10383,7 @@
       "year": 2023
     },
     {
-      "id": "study-170",
+      "id": "study-173",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10280,7 +10448,7 @@
       "year": 2023
     },
     {
-      "id": "study-171",
+      "id": "study-174",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10345,7 +10513,7 @@
       "year": 2023
     },
     {
-      "id": "study-172",
+      "id": "study-175",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10410,7 +10578,7 @@
       "year": 2023
     },
     {
-      "id": "study-173",
+      "id": "study-176",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10475,7 +10643,7 @@
       "year": 2023
     },
     {
-      "id": "study-174",
+      "id": "study-177",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10540,7 +10708,7 @@
       "year": 2023
     },
     {
-      "id": "study-175",
+      "id": "study-178",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10605,7 +10773,7 @@
       "year": 2023
     },
     {
-      "id": "study-176",
+      "id": "study-179",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10670,7 +10838,7 @@
       "year": 2023
     },
     {
-      "id": "study-177",
+      "id": "study-180",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10735,7 +10903,7 @@
       "year": 2023
     },
     {
-      "id": "study-178",
+      "id": "study-181",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10800,7 +10968,7 @@
       "year": 2023
     },
     {
-      "id": "study-179",
+      "id": "study-182",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10865,7 +11033,7 @@
       "year": 2023
     },
     {
-      "id": "study-180",
+      "id": "study-183",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10930,7 +11098,7 @@
       "year": 2023
     },
     {
-      "id": "study-181",
+      "id": "study-184",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -10995,7 +11163,7 @@
       "year": 2023
     },
     {
-      "id": "study-182",
+      "id": "study-185",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -11060,7 +11228,7 @@
       "year": 2023
     },
     {
-      "id": "study-183",
+      "id": "study-186",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -11125,7 +11293,7 @@
       "year": 2023
     },
     {
-      "id": "study-184",
+      "id": "study-187",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -11190,7 +11358,7 @@
       "year": 2023
     },
     {
-      "id": "study-185",
+      "id": "study-188",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -11255,7 +11423,7 @@
       "year": 2023
     },
     {
-      "id": "study-186",
+      "id": "study-189",
       "Study Name": "Inter-subject correlations of EEG reflect subjective arousal and acoustic features of music",
       "Authors": "Fuyu Ueno, Sotaro Shimada",
       "Year": 2023,
@@ -11320,7 +11488,7 @@
       "year": 2023
     },
     {
-      "id": "study-187",
+      "id": "study-190",
       "Study Name": "NMED-E Naturalistic Music EEG Dataset - Elgar | Inter-subject correlation of electroencephalographic and behavioural responses reflects time-varying engagement with natural music",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Norcia, Anthony M., Dmochowski, Jacek P., Berger, Jonathan",
       "Year": 2024,
@@ -11390,7 +11558,7 @@
       "year": 2024
     },
     {
-      "id": "study-188",
+      "id": "study-191",
       "Study Name": "NMED-E Naturalistic Music EEG Dataset - Elgar | Inter-subject correlation of electroencephalographic and behavioural responses reflects time-varying engagement with natural music",
       "Authors": "Kaneshiro, Blair, Nguyen, Duc T., Norcia, Anthony M., Dmochowski, Jacek P., Berger, Jonathan",
       "Year": 2024,
@@ -11459,7 +11627,7 @@
       "year": 2024
     },
     {
-      "id": "study-189",
+      "id": "study-192",
       "Study Name": "Neural encoding of musical expectations in a nonhuman primate",
       "Authors": "Roberta Bianco, Giacomo Novembre, Francesco Contini, Eleonora De Pisapia, Piergiorgio Trevisan, Mathew Diamond, Leonardo Chelazzi",
       "Year": 2024,
@@ -11522,7 +11690,7 @@
       "year": 2024
     },
     {
-      "id": "study-190",
+      "id": "study-193",
       "Study Name": "Neural encoding of musical expectations in a nonhuman primate",
       "Authors": "Roberta Bianco, Giacomo Novembre, Francesco Contini, Eleonora De Pisapia, Piergiorgio Trevisan, Mathew Diamond, Leonardo Chelazzi",
       "Year": 2024,
@@ -11584,7 +11752,7 @@
       "year": 2024
     },
     {
-      "id": "study-191",
+      "id": "study-194",
       "Study Name": "Music tempo modulates emotional states as revealed through EEG insights",
       "Authors": "Zengyao Yang, Qiruo Su, Jieren Xie, Hechong Su, Tianrun Huang, Chengcheng Han, Sicong Zhang, Kai Zhang, Guanghua Xu",
       "Year": 2025,
@@ -11660,7 +11828,7 @@
       "year": 2025
     },
     {
-      "id": "study-192",
+      "id": "study-195",
       "Study Name": "The power of music: impact on EEG signals",
       "Authors": "Basma Bahgat El Sayed, Mye Ali Basheer, Marwa Safwat Shalaby, Hala Rashad El Habashy, Saly Hasan Elkholy",
       "Year": 2025,
@@ -11726,7 +11894,7 @@
       "year": 2025
     },
     {
-      "id": "study-193",
+      "id": "study-196",
       "Study Name": "The power of music: impact on EEG signals",
       "Authors": "Basma Bahgat El Sayed, Mye Ali Basheer, Marwa Safwat Shalaby, Hala Rashad El Habashy, Saly Hasan Elkholy",
       "Year": 2025,

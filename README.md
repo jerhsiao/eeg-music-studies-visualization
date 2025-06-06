@@ -8,7 +8,7 @@ This project provides an interactive visualization interface for exploring a com
 
 When browsing the visualization, you'll notice multiple study cards belonging to the same parent research but focusing on different experimental conditions. This choice emphasizes the unique characteristics of each experimental condition rather than merely the publication-level details.
 
-The visualization makes it easy to explore relationships between experimental designs, musical stimuli, participant profiles, and EEG methodologies through a user-friendly interface with powerful filtering and search capabilities.
+The visualization makes it easy to explore relationships between experimental designs, musical stimuli, participant profiles, and EEG methodologies through a user-friendly interface with powerful filtering, search, and data visualization capabilities.
 
 ## Background
 
@@ -16,26 +16,47 @@ The intersection of neuroscience and music has grown significantly as a research
 
 This tool addresses this challenge by:
 
-1. Aggregating data from 41 EEG-music studies in a standardized format
+1. Aggregating data from **197 experimental conditions** across **44 unique studies** in a standardized format
 2. Providing intuitive visualization of temporal trends in research methods and topics
 3. Enabling detailed filtering and searching across multiple dimensions of study design
 4. Facilitating comparison of methodological approaches across similar studies
+5. Offering interactive data visualization for exploring patterns and distributions
 
 ## Features
 
-- **Timeline View**: Visualize studies across a selected time period with interactive year selection
-- **List View**: Browse studies with a customizable year range
-- **Advanced Filtering**: Filter studies by multiple criteria including:
-  - Paradigm Type
-  - Stimulus Type
-  - Musical Training
-  - EEG System
-  - Channel Count
-- **Standardized Channel Count Filtering**: Find all studies using a specific channel count regardless of variant descriptions
-- **Search**: Full-text search across all study fields
-- **Visual Timeline Filtering**: See filtered studies highlighted directly on the timeline
-- **Detailed Study Cards**: View comprehensive information about each study with expandable details
-- **CSV Export**: Export filtered data for further analysis
+### Interactive Timeline & Navigation
+- **Full Timeline View**: Complete 1975-2025 visualization with clickable year selection and automatic 10-year viewing windows centered on selected years
+- **Visual Study Distribution**: Bar heights indicate study counts per year, with light blue showing all studies and dark blue highlighting filtered results
+- **Smart Range Controls**: Independent year range filtering for study cards while maintaining full timeline scale
+- **Expandable Study Cards**: Comprehensive study information with collapsible detailed methodology sections
+
+### Advanced Multi-Dimensional Filtering
+- **Categorical Filters**: Dropdown selections for Paradigm Type (Controlled/Naturalistic), Stimulus Type (11+ categories from controlled tones to complete musical pieces), and standardized Musical Training levels (Extensive, Moderate, Minimal, Mixed Groups, etc.)
+- **Searchable Technical Specs**: Autocomplete fields for EEG Systems (35+ documented systems) and Channel Counts with intelligent grouping of variant descriptions
+- **Participant Demographics**: Filter by count ranges (1-10, 11-25, 26-50, 51-100, 100+) and training backgrounds
+- **Intelligent Feature Analysis**: Organized into 5 research-relevant categories:
+  - **EEG Frequency Bands**: Delta, theta, alpha, beta, gamma analysis
+  - **Cognitive & Emotional**: Attention, emotion, valence, arousal measures  
+  - **Musical Elements**: Tempo, harmony, melody processing
+  - **Brain Activity**: Coherence, power, ERPs, synchronization studies
+  - **Advanced Analysis**: Expectancy, imagery, spectral analysis, localization
+- **Real-time Filter Management**: Active filter tags with individual removal, complete reset options, and live result counts
+
+### Comprehensive Search & Discovery
+- **Cross-Field Text Search**: Simultaneous searching across all 29 metadata fields with instant highlighting of matching studies on timeline
+- **Visual Filter Feedback**: Timeline bars dynamically update to show filtered vs. total study distributions
+- **Smart Sorting**: Multiple sort options including chronological, participant count, and passage length with intelligent handling of missing data
+
+### Interactive Data Visualizer
+- **Dual Visualization Modes**: Toggle between timeline navigation and comprehensive chart analysis with smooth transitions
+- **Multi-Metric Analysis**: Bar chart distributions for 6+ key metrics including stimulus types, training levels, participant ranges, channel configurations, paradigm types, and top analyzed features
+- **Time Series Capability**: Optional year-by-year breakdown showing how metric distributions evolved over decades of research
+- **Interactive Chart Elements**: Hover details, color-coded categories, comprehensive legends with study counts, and responsive design for different screen sizes
+
+### Export & Research Tools
+- **Smart CSV Export**: Filtered datasets with automatically generated descriptive filenames including date ranges, search terms, and filter criteria
+- **Complete Metadata Preservation**: All 29 standardized fields exported for further statistical analysis or meta-studies
+- **Research-Ready Format**: Standardized data structure compatible with common analysis tools and statistical software
 
 ## Installation and Setup for Running Locally
 
@@ -67,43 +88,35 @@ This tool addresses this challenge by:
 
 ## How to Use
 
-### Timeline View
-1. **Navigate the Timeline**: Click anywhere on the timeline to select a specific year
-2. **View Study Distribution**: Height of bars indicates number of studies per year
-3. **Examine Year Range**: Studies within ±5 years of the selected year are displayed
-4. **Filter Studies**: Use the filter panel to refine results by various criteria
-5. **See Filtered Results**: Darker bars indicate studies that match your current filters
+### Quick Start
+**Timeline Navigation**: Click any year on the timeline (1975-2025) to select it and automatically view a 10-year window of studies centered on that year. The blue highlighted region shows your current viewing range, while the circle indicator marks your selected year.
 
-### List View
-1. **Set Custom Range**: Specify start and end years to view studies within that time period
-2. **Apply Filters**: Use the filter options to narrow down results
-3. **Sort Results**: Change the sort order using the "Sort By" dropdown
-4. **Explore Studies**: Browse through study cards showing key information
+**Data Visualizer**: Click the "Data Visualizer" button to switch from timeline to interactive charts. Choose metrics from the dropdown (Stimulus Type, Musical Training, etc.), toggle "Time Breakdown" for year-by-year analysis, and hover over bars for detailed information.
 
-### Filtering and Searching
-1. **Text Search**: Use the search bar to find studies containing specific text
-2. **Filter Dropdowns**: Select from standardized categories for Paradigm Type, Stimulus Type, etc.
-3. **Musical Training**: Filter by standardized training categories
-4. **Channel Count**: Filter by standardized channel counts (automatically groups similar entries)
-5. **EEG System**: Search and select specific EEG systems
+**Filtering & Search**: Use the comprehensive filter panel to narrow results by any combination of study characteristics. The search bar works across all fields simultaneously. Filter results appear as dark blue bars on the timeline and update study cards in real-time.
 
-### Study Details
-1. **Basic Information**: View study title, authors, year, and links
-2. **Key Findings**: See summarized findings for each study
-3. **Expand Details**: Click "Show More" to view comprehensive study information including:
-   - Paradigm and stimulus details
-   - Participant information
-   - EEG methodology
-   - Analysis techniques
-   - Additional metadata
+**Study Exploration**: Browse study cards below the timeline, click "Show More" for detailed methodology, and use the "Export to CSV" button to download your filtered dataset with smart filename generation.
 
-### Data Export
-1. Click the "Export to CSV" button to download the currently filtered dataset
-2. The exported file includes all metadata for further analysis
+### Advanced Features
+**Custom Year Ranges**: Use Start/End Year controls for precise temporal filtering independent of timeline visualization. The selected year automatically moves to the center of your custom range.
+
+**Filter Management**: Active filters appear as removable tags. Use "Clear All Filters" for quick reset, or remove individual filters by clicking the × on each tag.
+
+**Sorting & Organization**: Change result order using the Sort dropdown, with options for chronological, participant count, and passage length sorting that intelligently handles missing data.
+
+## Database Statistics
+
+- **Total Entries**: 197 experimental conditions
+- **Unique Studies**: 44 research publications
+- **Time Span**: 1975-2025 (50 years of research)
+- **Metadata Fields**: 29 standardized columns
+- **Feature Categories**: 15+ standardized analysis categories
+- **EEG Systems**: 35+ unique recording systems documented
+- **Stimulus Types**: 11 major categories from controlled tones to naturalistic music
 
 ## Metadata Schema
 
-The database follows a standardized schema with 29 columns:
+The database follows a comprehensive 29-field schema designed for optimal searchability and comparison:
 
 | Field | Description | Example |
 |-------|-------------|---------|
@@ -137,46 +150,66 @@ The database follows a standardized schema with 29 columns:
 | Event Markers | How events were marked | "Math problems used to block alpha before each aural condition" |
 | Publication | Citation for published paper | "Journal of Research in Music Education 23(1) 3-13" |
 
+### Standardized Feature Categories
+
+Musical features are automatically categorized into standardized groups:
+
+- **EEG Frequency Bands**: Delta, theta, alpha, beta, gamma
+- **Cognitive & Emotional Metrics**: Attention, emotion, valence, arousal
+- **Musical Elements**: Tempo, harmony, melody
+- **Brain Activity Measures**: Coherence, power, ERPs, synchronization
+- **Advanced Analysis**: Expectancy, imagery, spectral analysis, localization
+
 ## Code Structure
 
-The application is organized into modular components:
+The application is organized into modular React components:
 
-- **Main**: Main application component that handles overall layout and rendering
-- **StudyCard**: Displays individual study information
-- **Timeline**: Interactive timeline visualization
-- **FilterComponents**: Handles filtering and search functionality
+- **Main**: Top-level component handling overall layout, data loading, and coordination of subcomponents.
+- **StudyCard**: Displays an individual study’s details, with expandable sections for more information.
+- **TimelineContainer**: Orchestrates the timeline view and embedded data visualizer. It now replaces the old single `Timeline` component.
+  - **TimelineBar**: Renders the year-by-year bars that show how many studies fall into each year.
+  - **DataVisualizer**: Displays a metric-based breakdown (e.g., “Musical Training,” “Stimulus Type,” etc.) as stacked bars or grouped charts.
+  - **VisualizationControls**: Provides UI controls (metric selector, time-breakdown toggle, etc.) for driving `DataVisualizer`.
+- **FilterComponents**: Comprehensive filtering UI, including:
+  - **StandardFilter** (dropdown selections)
+  - **SearchableFilter** (autocomplete inputs)
+  - **MusicalFeaturesFilter** (multi-select feature categories)
+  - **SortOptionsFilter** (sorting choices: year, participants, passage length, etc.)
+  - **YearRangeFilter** (start/end year sliders or inputs)
 
 ### State Management
 
-- Uses React Context API (DataContext.js) to manage global state
-- Implements the reducer pattern (appReducer.js) for predictable state changes
-- Centralizes data processing and filtering logic
+- **React Context API** (DataContext.js) for global state management
+- **Reducer Pattern** (appReducer.js) for predictable state changes
+- **Centralized Data Processing** with efficient filtering algorithms
+- **Real-time Updates** for responsive user interactions
 
 ## Technical Implementation
 
 ### Technologies Used
-- React (JavaScript library for building user interfaces)
-- PapaParse (CSV parsing library)
-- Lodash (JavaScript utility library)
-- CSS3 (Styling with flexbox and grid)
+- **React** (JavaScript library for building user interfaces)
+- **PapaParse** (CSV parsing library)
+- **Lodash** (JavaScript utility library for data operations)
+- **CSS3** (Modern styling with flexbox, grid, and animations)
 
 ### Data Processing
-- CSV data is loaded asynchronously and parsed on application initialization
-- Data cleaning and normalization is applied (handling empty values, standardizing formats)
-- Derived fields are created for filtering efficiency (e.g., standardized channel counts)
+- **Asynchronous Loading**: Fetch JSON on mount, with “loading” and “error” states surfaced in `Main`.
+- **Automated Categorization**:  
+  - “Top Features,” “Participant Range,” and “Channel Count Range” are derived fields.  
+  - Helper functions (`getParticipantRange`, `getChannelCountRange`) bucket raw values into categories.
+- **Standardized Formatting**: All filterable fields use consistent string formats or normalized arrays to speed up lookups.
+- **Derived Fields**:  
+  - Quantities like `participantsValue` and `normalizedFeatures` get pre-computed so that filtering in `useMemo` runs fast.
 
-### State Management
-- React useState hooks manage application state
-- Multiple state elements track:
-  - Raw and processed data
-  - UI view modes and states
-  - Filter selections and search queries
-  - Sorting preferences
-
-### Performance Considerations
-- Efficient filtering algorithms minimize re-renders
-- Timeline visualization uses calculated positioning for accuracy
-- Optimized search implementation preserves responsiveness with large datasets
+### Performance Optimizations
+- **Memoized Calculations** (`useMemo` everywhere)  
+  - `currentMetricData` (counts + categories for a chosen metric)  
+  - `timeSeriesData` (per-year breakdown when “time-breakdown” mode is on)  
+  - `visualizationMetrics` itself is defined once (either module-scope or wrapped in a `useMemo` with `[]`) to ensure stable references.
+- **Efficient Filtering**:  
+  - All filters (search text, dropdowns, year range) apply in a single pass through `data.studies` inside each memo.  
+  - We avoid deep clones—just a filtered array is created, then counts are tallied.
+  
 
 ## Contributing
 
@@ -187,6 +220,13 @@ Contributions to improve the visualization or extend the database are welcome. P
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+### Areas for Contribution
+- Additional EEG studies and experimental conditions
+- Enhanced data visualization features
+- Improved filtering capabilities
+- Mobile responsiveness improvements
+- Accessibility enhancements
 
 ## License
 

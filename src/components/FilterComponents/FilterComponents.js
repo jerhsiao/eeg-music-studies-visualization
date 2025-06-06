@@ -3,7 +3,6 @@ import { useData } from '../../utils/DataContext';
 import { ACTION_TYPES } from '../../utils/appReducer';
 import './FilterComponents.css';
 
-// For standard filter dropdowns (Paradigm Type, Stimulus Type, Musical Training)
 export const StandardFilter = ({ category, options }) => {
   const { activeFilters, openDropdowns, dispatch } = useData();
   
@@ -71,21 +70,18 @@ export const StandardFilter = ({ category, options }) => {
   );
 };
 
-// Searchable Input (for EEG System and Channel Count)
 export const SearchableFilter = ({ category, options, placeholder }) => {
   const { activeFilters, dispatch } = useData();
   const [searchValue, setSearchValue] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   
-  // Filter options based on search input
   const filteredOptions = searchValue
     ? options.filter(option => 
         option.toLowerCase().includes(searchValue.toLowerCase())
       )
     : options;
   
-  // Handle click outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -99,13 +95,12 @@ export const SearchableFilter = ({ category, options, placeholder }) => {
     };
   }, [dropdownRef]);
   
-  // Select an option from dropdown - mirrors selectEEGSystem and selectChannelCount
   const selectOption = useCallback((option) => {
     dispatch({
       type: ACTION_TYPES.SET_FILTER,
       payload: {
         category: category.key,
-        values: [option] // Set as the only value, replacing any existing ones
+        values: [option]
       }
     });
     
@@ -175,7 +170,6 @@ export const SearchableFilter = ({ category, options, placeholder }) => {
   );
 };
 
-// For Musical Features
 export const MusicalFeaturesFilter = () => {
   const { metadata, activeFilters, openDropdowns, dispatch } = useData();
   
@@ -266,7 +260,6 @@ export const MusicalFeaturesFilter = () => {
   );
 };
 
-// For Sort options
 export const SortOptionsFilter = ({ sortOptions, currentSort }) => {
   const { openDropdowns, dispatch } = useData();
   const sortDropdownRef = useRef(null);
@@ -285,7 +278,6 @@ export const SortOptionsFilter = ({ sortOptions, currentSort }) => {
     });
   }, [dispatch]);
   
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sortDropdownRef.current && !sortDropdownRef.current.contains(event.target)) {
@@ -332,6 +324,89 @@ export const SortOptionsFilter = ({ sortOptions, currentSort }) => {
   );
 };
 
+export const YearRangeFilter = () => {
+  const { startYear, endYear, metadata, dispatch } = useData();
+  const [tempStartYear, setTempStartYear] = useState(startYear);
+  const [tempEndYear, setTempEndYear] = useState(endYear);
+  
+  useEffect(() => {
+    setTempStartYear(startYear);
+    setTempEndYear(endYear);
+  }, [startYear, endYear]);
+  
+  const handleStartYearChange = useCallback((e) => {
+    const newStartYear = parseInt(e.target.value, 10);
+    if (!isNaN(newStartYear)) {
+      setTempStartYear(newStartYear);
+    }
+  }, []);
+  
+  const handleEndYearChange = useCallback((e) => {
+    const newEndYear = parseInt(e.target.value, 10);
+    if (!isNaN(newEndYear)) {
+      setTempEndYear(newEndYear);
+    }
+  }, []);
+  
+  const applyYearRange = useCallback(() => {
+    const middleYear = Math.round((tempStartYear + tempEndYear) / 2);
+    
+    dispatch({
+      type: ACTION_TYPES.SET_SELECTED_YEAR,
+      payload: middleYear
+    });
+    
+    dispatch({
+      type: ACTION_TYPES.SET_START_YEAR,
+      payload: tempStartYear
+    });
+    dispatch({
+      type: ACTION_TYPES.SET_END_YEAR,
+      payload: tempEndYear
+    });
+  }, [tempStartYear, tempEndYear, dispatch]);
+  
+  const minYear = metadata?.yearRange?.min || 1975;
+  const maxYear = metadata?.yearRange?.max || 2025;
+  
+  return (
+    <div className="year-range-inputs">
+      <div className="year-input-group">
+        <label htmlFor="start-year">Start Year:</label>
+        <input
+          id="start-year"
+          type="number"
+          min={minYear}
+          max={maxYear}
+          value={tempStartYear}
+          onChange={handleStartYearChange}
+        />
+      </div>
+      
+      <div className="year-input-group">
+        <label htmlFor="end-year">End Year:</label>
+        <input
+          id="end-year"
+          type="number"
+          min={minYear}
+          max={maxYear}
+          value={tempEndYear}
+          onChange={handleEndYearChange}
+        />
+      </div>
+      
+      <div className="year-input-group">
+        <button 
+          className="apply-year-range-btn"
+          onClick={applyYearRange}
+        >
+          Apply Year Range
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export const FilterContainer = () => {
   const { 
     activeFilters,
@@ -341,25 +416,31 @@ export const FilterContainer = () => {
     dispatch 
   } = useData();
   
-  // Define filter categories
-  const filterCategories = [
+  const topRowFilters = [
     { key: 'Paradigm Type', label: 'Paradigm Type' },
     { key: 'Stimulus Type', label: 'Stimulus Type' },
-    { key: 'Musical Training', label: 'Musical Training' }
+    { key: 'Musical Training', label: 'Musical Training' },
+    { key: 'Participant Range', label: 'Participant Count' }
   ];
   
-  // Standard categories for Musical Training
   const standardTrainingCategories = [
-    'Extensive Training',   // (>10 years)
-    'Moderate Training',    // (5-10 years)
-    'Minimal Training',     // (<5 years)
+    'Extensive Training',
+    'Moderate Training',
+    'Minimal Training',
     'Mixed Groups',
     'No Formal Training',
     'Not Reported',
     'Not Applicable'
   ];
+
+  const participantRangeCategories = [
+    '1-10',
+    '11-25', 
+    '26-50',
+    '51-100',
+    '100+'
+  ];
   
-  // Sort options
   const sortOptions = [
     { value: 'year-asc', label: 'Year (Low to High)' },
     { value: 'year-desc', label: 'Year (High to Low)' },
@@ -369,12 +450,10 @@ export const FilterContainer = () => {
     { value: 'length-desc', label: 'Passage Length (Long to Short)' }
   ];
   
-  // Clear all filters
   const clearFilters = useCallback(() => {
     dispatch({ type: ACTION_TYPES.CLEAR_FILTERS });
   }, [dispatch]);
   
-  // Handle search input change
   const handleSearchChange = useCallback((e) => {
     dispatch({
       type: ACTION_TYPES.SET_SEARCH_QUERY,
@@ -382,7 +461,6 @@ export const FilterContainer = () => {
     });
   }, [dispatch]);
   
-  // Clear search input
   const clearSearch = useCallback(() => {
     dispatch({
       type: ACTION_TYPES.SET_SEARCH_QUERY,
@@ -392,7 +470,6 @@ export const FilterContainer = () => {
   
   return (
     <div className="filters-container">
-      {/* Search input */}
       <div className="search-container">
         <input
           type="text"
@@ -412,7 +489,6 @@ export const FilterContainer = () => {
         )}
       </div>
       
-      {/* Filters section */}
       <div className="filters-section">
         <div className="filters-header">
           <h3>Filters</h3>
@@ -426,14 +502,19 @@ export const FilterContainer = () => {
           )}
         </div>
         
-        {/* Main filter row */}
-        <div className="filter-row">
-          {/* Standard dropdown filters */}
-          {filterCategories.map(category => {
-            // Special case for Musical Training which uses standard categories
-            const options = category.key === 'Musical Training' 
-              ? standardTrainingCategories
-              : metadata?.filterOptions?.[category.key] || [];
+
+        <YearRangeFilter />
+        
+        <div className="filter-row-top">
+          {topRowFilters.map(category => {
+            let options;
+            if (category.key === 'Musical Training') {
+              options = standardTrainingCategories;
+            } else if (category.key === 'Participant Range') {
+              options = participantRangeCategories;
+            } else {
+              options = metadata?.filterOptions?.[category.key] || [];
+            }
             
             return (
               <StandardFilter 
@@ -444,10 +525,10 @@ export const FilterContainer = () => {
             );
           })}
           
-          {/* Musical Features filter */}
           <MusicalFeaturesFilter />
-          
-          {/* Searchable filters */}
+        </div>
+        
+        <div className="filter-row-bottom">
           <SearchableFilter 
             category={{ key: 'EEG System Used', label: 'EEG System' }}
             options={metadata?.filterOptions?.['EEG System Used'] || []}
@@ -461,7 +542,13 @@ export const FilterContainer = () => {
           />
         </div>
         
-        {/* Active filters summary */}
+        <div className="sort-container">
+          <SortOptionsFilter 
+            sortOptions={sortOptions}
+            currentSort={sortOption}
+          />
+        </div>
+        
         {Object.keys(activeFilters).length > 0 && (
           <div className="active-filters-summary">
             {Object.entries(activeFilters).map(([category, values]) => (
@@ -484,14 +571,6 @@ export const FilterContainer = () => {
             ))}
           </div>
         )}
-        
-        {/* Sort options */}
-        <div className="sort-container">
-          <SortOptionsFilter 
-            sortOptions={sortOptions}
-            currentSort={sortOption}
-          />
-        </div>
       </div>
     </div>
   );

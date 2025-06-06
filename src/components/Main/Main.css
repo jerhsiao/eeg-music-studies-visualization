@@ -1,5 +1,4 @@
 
-/* Header */
 .header {
   text-align: center;
   padding: var(--space-md) 0 var(--space-lg);
@@ -11,7 +10,6 @@
   color: var(--gray-800);
 }
 
-/* About section */
 .about-section {
   background-color: white;
   border-radius: var(--radius-lg);
@@ -67,7 +65,6 @@
   min-width: 100px;
 }
 
-/* Controls panel */
 .controls-panel {
   background-color: white;
   border-radius: var(--radius-lg);
@@ -78,38 +75,11 @@
 
 .controls-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: var(--space-md);
 }
 
-/* View toggle */
-.view-toggle {
-  display: flex;
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.toggle-btn {
-  padding: var(--space-sm) var(--space-md);
-  background: var(--gray-50);
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition-standard);
-}
-
-.toggle-btn:hover:not(.active) {
-  background: var(--gray-200);
-}
-
-.toggle-btn.active {
-  background: var(--primary);
-  color: white;
-}
-
-/* Export button */
 .export-btn {
   padding: var(--space-sm) var(--space-md);
   background-color: var(--secondary);
@@ -125,31 +95,6 @@
   background-color: var(--secondary-dark);
 }
 
-/* Year range inputs for list view */
-.year-range-inputs {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-.year-input-group {
-  display: flex;
-  align-items: center;
-}
-
-.year-input-group label {
-  margin-right: var(--space-sm);
-  font-weight: 500;
-}
-
-.year-input-group input {
-  padding: var(--space-sm);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-sm);
-  width: 80px;
-}
-
-/* Results info bar */
 .results-info {
   display: flex;
   justify-content: space-between;
@@ -221,18 +166,30 @@
   box-shadow: var(--shadow-sm);
 }
 
+.reset-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-standard);
+}
+
+.reset-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .controls-top {
-    flex-direction: column;
-    gap: var(--space-sm);
+    justify-content: center;
   }
   
   .instruction-item {
     flex: 0 0 100%;
-  }
-  
-  .year-range-inputs {
-    flex-direction: column;
   }
 }

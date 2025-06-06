@@ -1,6 +1,5 @@
-/* Common UI elements used across components */
+/* Common UI elements */
 
-/* Buttons */
 .btn {
   border: none;
   border-radius: var(--radius-md);

@@ -65,19 +65,16 @@ function normalizeFeatures(featuresText) {
 function parsePassageLength(lengthStr) {
   if (!lengthStr || typeof lengthStr !== 'string') return -1;
   
-  // Find average of passage length
   if (lengthStr.includes('-') || lengthStr.includes('–')) {
     const parts = lengthStr.replace('–', '-').split('-');
     const values = parts.map(p => parsePassageLength(p.trim())).filter(v => v !== -1);
     return values.length ? values.reduce((a, b) => a + b, 0) / values.length : -1;
   }
-  // Trim
   lengthStr = lengthStr.replace('~', '').trim();
   if (lengthStr.includes(' per ')) {
     lengthStr = lengthStr.split(' per ')[0].trim();
   }
   
-  // Time
   const timeMatch = lengthStr.match(/(\d+):(\d+)/);
   if (timeMatch) return parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2]);
   
@@ -95,6 +92,18 @@ function extractChannelCount(str) {
   if (!str) return null;
   const match = str.match(/^(\d+)/);
   return match ? parseInt(match[1], 10) : null;
+}
+
+function parseParticipantCount(participantStr) {
+  if (!participantStr || typeof participantStr !== 'string') return -1;
+  
+  const trimmed = participantStr.trim();
+  
+  const numMatch = trimmed.match(/(\d+)/);
+  if (!numMatch) return -1;
+  
+  const value = parseInt(numMatch[1], 10);
+  return isNaN(value) ? -1 : value;
 }
 
 async function convertCsvToJson() {
@@ -139,7 +148,7 @@ async function convertCsvToJson() {
                   break;
                   
                 case 'DOI/URL':
-                case 'Dataset': // Placeholder, not really sure how to check these
+                case 'Dataset': 
                   if (trimmed.startsWith('http') || trimmed.startsWith('10.')) {
                     cleanedEntry[key] = trimmed;
                   }
@@ -157,8 +166,7 @@ async function convertCsvToJson() {
                   
                 case 'Number of Participants':
                   cleanedEntry[key] = trimmed;
-                  const pMatch = trimmed.match(/(\d+)/);
-                  cleanedEntry['participantsValue'] = pMatch ? parseInt(pMatch[1], 10) : -1;
+                  cleanedEntry['participantsValue'] = parseParticipantCount(trimmed);
                   break;
                   
                 default:
@@ -171,7 +179,6 @@ async function convertCsvToJson() {
           })
           .filter(entry => entry.year > 0);
         
-        // Calculate feature statistics
         const featureStats = {};
         processedData.forEach(study => {
           (study.normalizedFeatures || []).forEach(feature => {
@@ -202,6 +209,14 @@ async function convertCsvToJson() {
         
         fs.writeFileSync(outputPath, JSON.stringify(jsonOutput, null, 2));
         console.log(`Processed ${processedData.length} studies with ${sortedFeatures.length} feature categories.`);
+        
+        const participantCounts = processedData
+          .map(s => s.participantsValue)
+          .filter(v => v > 0)
+          .sort((a, b) => a - b);
+        
+        console.log(`Participant count range: ${participantCounts[0]} - ${participantCounts[participantCounts.length - 1]}`);
+        console.log(`Valid participant counts: ${participantCounts.length}/${processedData.length}`);
       },
       error: (error) => console.error("CSV parsing error:", error)
     });
