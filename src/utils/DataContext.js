@@ -179,11 +179,19 @@ export const DataProvider = ({ children }) => {
     filteredStudyCountsByYear: filteredStudyCountsByYear || {},
     studiesOutsideCurrentRange: studiesOutsideCurrentRange,
     
-    reloadData: () => {
+    reloadData: async () => {
+      dispatch({ type: ACTION_TYPES.DATA_LOAD_START });
       try {
-        return csvLoader.loadStudies(true);
+        const result = await csvLoader.loadStudies(true);
+        dispatch({ type: ACTION_TYPES.DATA_LOAD_SUCCESS, payload: result });
+        return result;
       } catch (error) {
         console.error('Error reloading data:', error);
+        dispatch({
+          type: ACTION_TYPES.DATA_LOAD_ERROR,
+          payload: error.message || 'Unknown error occurred while loading data'
+        });
+        throw error;
       }
     },
     dispatch

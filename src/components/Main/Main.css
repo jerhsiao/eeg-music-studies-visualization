@@ -16,6 +16,7 @@
   padding: var(--space-lg);
   margin-bottom: var(--space-lg);
   box-shadow: var(--shadow-sm);
+  position: relative;
 }
 
 .about-section h2 {
@@ -32,6 +33,13 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.version-info {
+  font-size: var(--text-xs);
+  position: absolute;
+  color: var(--gray-600);
+  right: var(--space-sm);
 }
 
 .how-to-use h3 {

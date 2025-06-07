@@ -98,7 +98,7 @@ const Main = () => {
     return (
       <div className="loading-container">
         <div className="loading-spinner"></div>
-        <p>Loading EEG Music Studies database...</p>
+        <p>Loading EEG Music Studies Database and Visualizer...</p>
       </div>
     );
   }
@@ -118,7 +118,7 @@ const Main = () => {
   return (
     <div className="eeg-music-container">
       <header className="header">
-        <h1>EEG Music Studies Database</h1>
+        <h1>EEG Music Studies Database Visualizer</h1>
       </header>
       
       <div className="about-section">
@@ -161,10 +161,10 @@ const Main = () => {
               <span className="instruction-label">Export:</span>
               <span>Save current results as CSV file</span>
             </div>
-          </div>
         </div>
-      </div>
-      
+      </div>      
+      <p className="version-info">Webapp Version 1.2 · Developed by Jeremy J.X. Hsiao</p>
+    </div>
       <div className="controls-panel">
         <div className="controls-top">
           <button className="export-btn" onClick={exportToCSV}>

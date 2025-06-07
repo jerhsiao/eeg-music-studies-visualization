@@ -95,7 +95,7 @@ This tool addresses this challenge by:
 
 **Filtering & Search**: Use the comprehensive filter panel to narrow results by any combination of study characteristics. The search bar works across all fields simultaneously. Filter results appear as dark blue bars on the timeline and update study cards in real-time.
 
-**Study Exploration**: Browse study cards below the timeline, click "Show More" for detailed methodology, and use the "Export to CSV" button to download your filtered dataset with smart filename generation.
+**Study Exploration**: Browse study cards below the timeline, click "Show More" for detailed methodology, and use the "Export to CSV" button to download your dataset with smart filename generation.
 
 ### Advanced Features
 **Custom Year Ranges**: Use Start/End Year controls for precise temporal filtering independent of timeline visualization. The selected year automatically moves to the center of your custom range.
@@ -209,7 +209,7 @@ The application is organized into modular React components:
 - **Efficient Filtering**:  
   - All filters (search text, dropdowns, year range) apply in a single pass through `data.studies` inside each memo.  
   - We avoid deep clones—just a filtered array is created, then counts are tallied.
-  
+
 
 ## Contributing
 

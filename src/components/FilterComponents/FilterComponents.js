@@ -97,10 +97,10 @@ export const SearchableFilter = ({ category, options, placeholder }) => {
   
   const selectOption = useCallback((option) => {
     dispatch({
-      type: ACTION_TYPES.SET_FILTER,
+      type: ACTION_TYPES.TOGGLE_FILTER,
       payload: {
         category: category.key,
-        values: [option]
+        values: option
       }
     });
     
