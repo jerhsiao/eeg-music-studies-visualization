@@ -1,3 +1,193 @@
+const featureCategories = {
+  // EEG Frequency Bands
+  "delta": ["delta", "delta power", "delta band"],
+  "theta": ["theta", "theta power", "theta band"],
+  "alpha": ["alpha", "alpha power", "alpha band", "alpha rhythm", "alpha rhythms", "alpha-2", "alpha peak", "alpha blocking", "alpha-wave"],
+  "beta": ["beta", "beta power", "beta band", "beta 1", "beta 2", "beta 3"],
+  "gamma": ["gamma", "gamma band", "gamma-band", "30–50 hz"],
+  
+  // Cognitive/Emotional Metrics
+  "attention": ["attention", "attentiveness", "temporal attention"],
+  "emotion": ["emotion", "emotional", "emotional arousal", "emotional valence", "affect", "affective", "pleasantness", "happiness", "sadness", "fear", "anger", "tenderness"],
+  "valence": ["valence", "pleasantness", "happiness", "sadness"],
+  "arousal": ["arousal", "energy", "activation"],
+  
+  // Musical Elements
+  "tempo": ["tempo", "beat", "pulse", "rhythm", "bpm"],
+  "harmony": ["harmony", "harmonic", "chord", "chords", "diatonic", "nondiatonic", "cadence", "tonality"],
+  "melody": ["melody", "melodic", "contour", "interval", "pitch", "scale"],
+  
+  // Brain Activity Metrics
+  "coherence": ["coherence", "phase synchrony", "connectivity", "coupling", "inter-subject correlation", "isc", "src"],
+  "power": ["power", "amplitude", "activation", "band power", "cortical activation", "activity"],
+  "erp": ["erp", "event-related", "n100", "p200", "p300", "n400", "p3a", "p3b", "n5", "mmn", "eran", "cps"],
+  "synchronization": ["inter-subject correlation", "isc", "src", "neural synchrony", "entrainment", "frequency tagging"],
+  "expectancy": ["expectancy", "expectation", "surprise", "prediction", "violation"],
+  "imagery": ["imagery", "imagination", "mental"],
+  
+  // Signal Processing
+  "envelope": ["envelope", "acoustic envelope", "amplitude envelope", "rms", "spectral flux"],
+  "spectral": ["spectral", "spectrum", "frequency", "spectrogram", "spectral flux", "zero-crossing"],
+  "localization": ["hemispheric", "lateralization", "frontal", "central", "parietal", "temporal", "occipital"]
+};
+
+export function normalizeFeatures(featuresText) {
+  if (!featuresText) return [];
+  
+  const lowercaseText = featuresText.toLowerCase();
+  const identifiedCategories = new Set();
+  
+  Object.entries(featureCategories).forEach(([category, keywords]) => {
+    for (const keyword of keywords) {
+      if (keyword.includes(' ') && lowercaseText.includes(keyword)) {
+        identifiedCategories.add(category);
+        break;
+      }
+      else if (new RegExp(`\\b${keyword}\\b`, 'i').test(lowercaseText)) {
+        identifiedCategories.add(category);
+        break;
+      }
+    }
+  });
+  
+  return Array.from(identifiedCategories);
+}
+
+export function parsePassageLength(lengthStr) {
+  if (!lengthStr || typeof lengthStr !== 'string') return -1;
+  
+  if (lengthStr.includes('-') || lengthStr.includes('–')) {
+    const parts = lengthStr.replace('–', '-').split('-');
+    const values = parts.map(p => parsePassageLength(p.trim())).filter(v => v !== -1);
+    return values.length ? values.reduce((a, b) => a + b, 0) / values.length : -1;
+  }
+  
+  lengthStr = lengthStr.replace('~', '').trim();
+  if (lengthStr.includes(' per ')) {
+    lengthStr = lengthStr.split(' per ')[0].trim();
+  }
+  
+  const timeMatch = lengthStr.match(/(\d+):(\d+)/);
+  if (timeMatch) return parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2]);
+
+  const numMatch = lengthStr.match(/(\d+\.?\d*)/);
+  if (!numMatch) return -1;
+  
+  const value = parseFloat(numMatch[1]);
+  if (isNaN(value)) return -1;
+  
+  if (/min|minute/i.test(lengthStr)) return value * 60;
+  return value; 
+}
+
+export function extractChannelCount(str) {
+  if (!str) return null;
+  const match = str.match(/^(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+export function parseParticipantCount(participantStr) {
+  if (!participantStr || typeof participantStr !== 'string') return -1;
+  
+  const trimmed = participantStr.trim();
+  const numMatch = trimmed.match(/(\d+)/);
+  if (!numMatch) return -1;
+  
+  const value = parseInt(numMatch[1], 10);
+  return isNaN(value) ? -1 : value;
+}
+
+function parseArrayField(value) {
+  if (!value || typeof value !== 'string') return [];
+  if (value.toLowerCase() === 'na' || value.toLowerCase() === 'not specified') return [];
+  
+  return value.split(',')
+    .map(item => item.trim())
+    .filter(item => item.length > 0);
+}
+
+export function normalizeStudyData(entry, index) {
+  if (!entry || typeof entry !== 'object') {
+    console.warn(`Invalid entry at index ${index}:`, entry);
+    return null;
+  }
+
+  const cleanedEntry = { id: `study-${index}` };
+  
+  Object.entries(entry).forEach(([key, value]) => {
+    if (value == null || value === '') return;
+    
+    const trimmed = typeof value === 'string' ? value.trim() : value;
+    const lowerVal = typeof trimmed === 'string' ? trimmed.toLowerCase() : '';
+    
+    if (trimmed === '' || lowerVal === 'na' || lowerVal === 'not specified') return;
+    
+    switch(key) {
+      case 'Year':
+        const year = parseInt(trimmed, 10);
+        if (!isNaN(year) && year > 1900 && year <= 2030) {
+          cleanedEntry[key] = year;
+        }
+        break;
+        
+      case 'Paradigm Type':
+      case 'Musical Features Analyzed':
+      case 'Preprocessing':
+      case 'EEG Analysis Techniques':
+      case 'Statistical Tests':
+      case 'Event Markers':
+      case 'Stimulus Type':
+        const items = parseArrayField(trimmed);
+        if (items.length > 0) {
+          cleanedEntry[key] = items;
+        }
+        
+        if (key === 'Musical Features Analyzed') {
+          cleanedEntry['normalizedFeatures'] = normalizeFeatures(trimmed);
+        }
+        break;
+        
+      case 'DOI/URL':
+      case 'Dataset': 
+        if (trimmed.startsWith('http') || trimmed.startsWith('10.')) {
+          cleanedEntry[key] = trimmed;
+        }
+        break;
+        
+      case 'Channel Count':
+        cleanedEntry[key] = trimmed;
+        cleanedEntry['channelCountValue'] = extractChannelCount(trimmed);
+        break;
+        
+      case 'Passage Length':
+        cleanedEntry[key] = trimmed;
+        cleanedEntry['passageLengthSeconds'] = parsePassageLength(trimmed);
+        break;
+        
+      case 'Number of Participants':
+        cleanedEntry[key] = trimmed;
+        cleanedEntry['participantsValue'] = parseParticipantCount(trimmed);
+        break;
+        
+      default:
+        cleanedEntry[key] = trimmed;
+    }
+  });
+  
+  cleanedEntry.year = cleanedEntry.Year || 0;
+  
+  if (!cleanedEntry['normalizedFeatures']) {
+    cleanedEntry['normalizedFeatures'] = [];
+  }
+  
+  if (cleanedEntry.year > 0 && cleanedEntry['Study Name']) {
+    return cleanedEntry;
+  }
+  
+  console.warn(`Skipping invalid study at index ${index}:`, cleanedEntry);
+  return null;
+}
+
 export const DataTransforms = {
   getParticipantRange: (participantValue) => {
     if (participantValue <= 0) return null;
@@ -28,10 +218,12 @@ export const DataTransforms = {
 };
 
 export const applyFilters = (studies, filters) => {
+  if (!studies || !Array.isArray(studies)) return [];
+  
   const { searchQuery, activeFilters, startYear, endYear } = filters;
   
   let filtered = studies.filter(study => 
-    study.year >= startYear && study.year <= endYear
+    study && study.year >= startYear && study.year <= endYear
   );
 
   if (searchQuery?.trim()) {
@@ -54,39 +246,51 @@ export const applyFilters = (studies, filters) => {
     });
   }
 
-  Object.entries(activeFilters).forEach(([category, selectedValues]) => {
-    if (selectedValues.length === 0) return;
+  if (activeFilters && typeof activeFilters === 'object') {
+    Object.entries(activeFilters).forEach(([category, selectedValues]) => {
+      if (!Array.isArray(selectedValues) || selectedValues.length === 0) return;
 
-    filtered = filtered.filter(study => {
-      switch (category) {
-        case 'Musical Training':
-          return study[category] && selectedValues.some(val => study[category].includes(val));
-          
-        case 'Channel Count': {
-          const formattedCount = DataTransforms.formatChannelCount(study['Channel Count']);
-          return selectedValues.includes(formattedCount) || selectedValues.includes(study['Channel Count']);
-        }
+      filtered = filtered.filter(study => {
+        if (!study) return false;
         
-        case 'Participant Range': {
-          const range = DataTransforms.getParticipantRange(study.participantsValue);
-          return range && selectedValues.includes(range);
-        }
-        
-        case 'normalizedFeatures':
-          return study[category]?.some?.(feature => selectedValues.includes(feature));
-          
-        default: {
-          const studyValue = study[category];
-          if (!studyValue) return false;
-          
-          if (Array.isArray(studyValue)) {
-            return studyValue.some(value => selectedValues.includes(String(value)));
+        switch (category) {
+          case 'Musical Training':
+          case 'Paradigm Type':
+          case 'Stimulus Type':
+            const studyValue = study[category];
+            if (!studyValue) return false;
+            
+            if (Array.isArray(studyValue)) {
+              return studyValue.some(val => selectedValues.includes(val));
+            }
+            return selectedValues.includes(String(studyValue));
+            
+          case 'Channel Count': {
+            const formattedCount = DataTransforms.formatChannelCount(study['Channel Count']);
+            return selectedValues.includes(formattedCount) || selectedValues.includes(study['Channel Count']);
           }
-          return selectedValues.includes(String(studyValue));
+          
+          case 'Participant Range': {
+            const range = DataTransforms.getParticipantRange(study.participantsValue);
+            return range && selectedValues.includes(range);
+          }
+          
+          case 'normalizedFeatures':
+            return study[category]?.some?.(feature => selectedValues.includes(feature));
+            
+          default: {
+            const studyValue = study[category];
+            if (!studyValue) return false;
+            
+            if (Array.isArray(studyValue)) {
+              return studyValue.some(value => selectedValues.includes(String(value)));
+            }
+            return selectedValues.includes(String(studyValue));
+          }
         }
-      }
+      });
     });
-  });
+  }
 
   return filtered;
 };
@@ -94,6 +298,7 @@ export const applyFilters = (studies, filters) => {
 export const sortFunctions = {
   'year-asc': (a, b) => (a.year || 0) - (b.year || 0),
   'year-desc': (a, b) => (b.year || 0) - (a.year || 0),
+  
   'participants-asc': (a, b) => {
     const aVal = a.participantsValue ?? -1;
     const bVal = b.participantsValue ?? -1;
@@ -102,6 +307,7 @@ export const sortFunctions = {
     if (bVal === -1) return -1;
     return aVal - bVal;
   },
+  
   'participants-desc': (a, b) => {
     const aVal = a.participantsValue ?? -1;
     const bVal = b.participantsValue ?? -1;
@@ -110,6 +316,7 @@ export const sortFunctions = {
     if (bVal === -1) return -1;
     return bVal - aVal;
   },
+  
   'length-asc': (a, b) => {
     const aVal = a.passageLengthSeconds ?? -1;
     const bVal = b.passageLengthSeconds ?? -1;
@@ -118,6 +325,7 @@ export const sortFunctions = {
     if (bVal === -1) return -1;
     return aVal - bVal;
   },
+  
   'length-desc': (a, b) => {
     const aVal = a.passageLengthSeconds ?? -1;
     const bVal = b.passageLengthSeconds ?? -1;
@@ -129,6 +337,8 @@ export const sortFunctions = {
 };
 
 export const generateFilterOptions = (studies) => {
+  if (!studies || !Array.isArray(studies)) return {};
+  
   const filterOptions = {};
   const filterCategories = ['Paradigm Type', 'Stimulus Type', 'Musical Training', 'EEG System Used'];
   const standardTrainingCategories = [
@@ -140,18 +350,43 @@ export const generateFilterOptions = (studies) => {
     const uniqueValues = new Set();
     
     studies.forEach(study => {
+      if (!study) return;
+      
       if (category === 'Musical Training') {
-        standardTrainingCategories.forEach(standardCategory => {
-          if (study[category]?.includes(standardCategory)) {
-            uniqueValues.add(standardCategory);
+        const trainingValue = study[category];
+        if (trainingValue) {
+          if (Array.isArray(trainingValue)) {
+            trainingValue.forEach(val => {
+              const matchedCategory = standardTrainingCategories.find(std => 
+                val.toLowerCase().includes(std.toLowerCase()) || 
+                std.toLowerCase().includes(val.toLowerCase())
+              );
+              if (matchedCategory) {
+                uniqueValues.add(matchedCategory);
+              } else {
+                uniqueValues.add(val);
+              }
+            });
+          } else {
+            const matchedCategory = standardTrainingCategories.find(std => 
+              trainingValue.toLowerCase().includes(std.toLowerCase()) || 
+              std.toLowerCase().includes(trainingValue.toLowerCase())
+            );
+            if (matchedCategory) {
+              uniqueValues.add(matchedCategory);
+            } else {
+              uniqueValues.add(String(trainingValue));
+            }
           }
-        });
+        }
       } else {
         const value = study[category];
-        if (Array.isArray(value)) {
-          value.forEach(v => uniqueValues.add(v));
-        } else if (value) {
-          uniqueValues.add(String(value));
+        if (value) {
+          if (Array.isArray(value)) {
+            value.forEach(v => uniqueValues.add(String(v)));
+          } else {
+            uniqueValues.add(String(value));
+          }
         }
       }
     });
@@ -161,6 +396,7 @@ export const generateFilterOptions = (studies) => {
   
   const channelCounts = new Set();
   studies.forEach(study => {
+    if (!study) return;
     const channelCount = study['Channel Count'];
     if (channelCount) {
       channelCounts.add(DataTransforms.formatChannelCount(channelCount) || channelCount);

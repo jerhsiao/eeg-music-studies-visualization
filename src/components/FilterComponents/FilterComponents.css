@@ -33,7 +33,7 @@
   margin-top: var(--space-sm);
   border-top: 1px solid var(--gray-200);
   padding-top: var(--space-sm);
-  padding-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
   position: relative;
 }
 
@@ -73,7 +73,8 @@
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  margin-top: var(--space-lg);
 }
 
 .filter-dropdown, .filter-search {
@@ -162,12 +163,6 @@
   overflow-y: auto;
 }
 
-.filter-options-dropdown.features-dropdown {
-  width: auto; 
-  min-width: 100%; 
-  max-width: 300px; 
-}
-
 .filter-option {
   display: flex;
   align-items: center;
@@ -232,17 +227,16 @@
 
 .active-filter-count {
   position: absolute;
-  top: 38px;
+  top: 36px;
   left: 0;
   right: 0;
   z-index: 99;
+  padding: 0.05rem;
   font-size: var(--text-xs);
   color: var(--primary-dark);
-  padding: var(--space-xs) var(--space-sm);
-  background-color: white;
   border: 0.5px solid var(--gray-200);
   border-top: none; 
-  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  border-radius: 0 0 var(--radius-xs) var(--radius-xs);
   text-align: center;
 }
 
@@ -312,7 +306,7 @@
 
 .active-filter-tags {
   position: absolute;
-  top: 66px;
+  top: 50px;
   left: 0;
   right: 0;
   z-index: 99;
@@ -330,7 +324,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-sm);
   padding-top: var(--space-sm);
 }
 
@@ -365,8 +359,8 @@
   width: 220px !important;
   min-width: 220px;
   max-width: 220px;
-  border: 1px solid var(--gray-200) !important;
-  background-color: var(--gray-50) !important;
+  border: 1px solid var(--gray-200);
+  background-color: var(--gray-50);
   border-radius: var(--radius-sm);
 }
 
@@ -469,13 +463,10 @@
     margin-bottom: 10px;
   }
   
-  .filter-row-bottom {
-    flex-wrap: wrap;
-  }
   
   .filter-row-bottom .filter-search {
     flex: 1 1 calc(50% - 5px);
-    margin-bottom: 10px;
+    width: 100%;
   }
   
   .sort-dropdown {
@@ -486,11 +477,6 @@
 @media (max-width: 768px) {
   .filter-row-top .filter-dropdown {
     flex: 1 1 100%;
-  }
-  
-  .filter-row-bottom .filter-search {
-    flex: 1 1 100%;
-    width: 100%;
   }
   
   .sort-dropdown {

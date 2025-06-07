@@ -31,7 +31,7 @@ const Main = () => {
     
     const targetYear = outsideMatches[0].year;
     const buffer = 5;
-    const minYear = metadata?.yearRange?.min || 1970;
+    const minYear = metadata?.yearRange?.min || 1975;
     const maxYear = metadata?.yearRange?.max || 2025;
     
     dispatch({
@@ -139,7 +139,7 @@ const Main = () => {
           <div className="use-instructions">
             <div className="instruction-item">
               <span className="instruction-label">Timeline View:</span>
-              <span>Timeline shows all years (1970-2025). Darker bars show studies in your selected range.</span>
+              <span>Timeline shows all years (1975-2025). Darker bars show studies in your selected range.</span>
             </div>
             <div className="instruction-item">
               <span className="instruction-label">Year Range:</span>

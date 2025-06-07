@@ -27,7 +27,8 @@ export const initialState = {
       columns: [],
       count: 0,
       yearRange: { min: 1975, max: 2025 },
-      featureCategories: []
+      featureCategories: [],
+      filterOptions: {}
     },
     loading: true,
     error: null
@@ -78,33 +79,75 @@ export const appReducer = (state, action) => {
     case ACTION_TYPES.DATA_LOAD_START:
       return {
         ...state,
-        data: { ...state.data, loading: true, error: null }
+        data: { 
+          ...state.data, 
+          loading: true, 
+          error: null 
+        }
       };
       
     case ACTION_TYPES.DATA_LOAD_SUCCESS: {
-      const { studies, metadata } = action.payload;
+      const { studies, metadata } = action.payload || {};
+      
+      if (!studies || !Array.isArray(studies)) {
+        console.error('Invalid studies data in payload:', action.payload);
+        return {
+          ...state,
+          data: { 
+            ...state.data, 
+            loading: false, 
+            error: 'Invalid data format received' 
+          }
+        };
+      }
+      
+      const years = studies.map(s => s.year).filter(y => y > 0);
+      const dataYearRange = years.length > 0 ? {
+        min: Math.min(...years),
+        max: Math.max(...years)
+      } : { min: 1975, max: 2025 };
+      
+      const defaultYear = Math.round((dataYearRange.min + dataYearRange.max) / 2);
       
       return {
         ...state,
-        data: { studies, metadata, loading: false, error: null },
-        selectedYear: 2000,
-        startYear: 1995,
-        endYear: 2005
+        data: { 
+          studies: studies || [], 
+          metadata: {
+            columns: metadata?.columns || [],
+            count: studies?.length || 0,
+            yearRange: dataYearRange,
+            featureCategories: metadata?.featureCategories || [],
+            filterOptions: metadata?.filterOptions || {}
+          }, 
+          loading: false, 
+          error: null 
+        },
+        selectedYear: defaultYear,
+        startYear: Math.max(dataYearRange.min, defaultYear - 5),
+        endYear: Math.min(dataYearRange.max, defaultYear + 5)
       };
     }
     
     case ACTION_TYPES.DATA_LOAD_ERROR:
       return {
         ...state,
-        data: { ...state.data, loading: false, error: action.payload }
+        data: { 
+          ...state.data, 
+          loading: false, 
+          error: action.payload || 'Unknown error occurred' 
+        }
       };
     
     case ACTION_TYPES.SET_SELECTED_YEAR:
+      const newSelectedYear = action.payload;
+      const yearRange = state.data?.metadata?.yearRange || { min: 1975, max: 2025 };
+      
       return { 
         ...state, 
-        selectedYear: action.payload,
-        startYear: action.payload - 5,
-        endYear: action.payload + 5 
+        selectedYear: newSelectedYear,
+        startYear: Math.max(yearRange.min, newSelectedYear - 5),
+        endYear: Math.min(yearRange.max, newSelectedYear + 5)
       };
       
     case ACTION_TYPES.SET_START_YEAR:
@@ -114,27 +157,50 @@ export const appReducer = (state, action) => {
       return { ...state, endYear: action.payload };
     
     case ACTION_TYPES.SET_SEARCH_QUERY:
-      return { ...state, searchQuery: action.payload };
+      return { ...state, searchQuery: action.payload || '' };
 
     case ACTION_TYPES.SET_FILTER:
+      if (!action.payload || !action.payload.category) {
+        console.warn('Invalid SET_FILTER payload:', action.payload);
+        return state;
+      }
+      
       return {
         ...state,
         activeFilters: {
           ...state.activeFilters,
-          [action.payload.category]: action.payload.values
+          [action.payload.category]: action.payload.values || []
         }
       };
       
     case ACTION_TYPES.TOGGLE_FILTER:
+      if (!action.payload || !action.payload.category || action.payload.value === undefined) {
+        console.warn('Invalid TOGGLE_FILTER payload:', action.payload);
+        return state;
+      }
+      
       return {
         ...state,
-        activeFilters: updateFilter(state.activeFilters, action.payload.category, action.payload.value)
+        activeFilters: updateFilter(
+          state.activeFilters, 
+          action.payload.category, 
+          action.payload.value
+        )
       };
     
     case ACTION_TYPES.REMOVE_FILTER:
+      if (!action.payload || !action.payload.category || action.payload.value === undefined) {
+        console.warn('Invalid REMOVE_FILTER payload:', action.payload);
+        return state;
+      }
+      
       return {
         ...state,
-        activeFilters: removeFilter(state.activeFilters, action.payload.category, action.payload.value)
+        activeFilters: removeFilter(
+          state.activeFilters, 
+          action.payload.category, 
+          action.payload.value
+        )
       };
     
     case ACTION_TYPES.CLEAR_FILTERS:
@@ -147,11 +213,16 @@ export const appReducer = (state, action) => {
     case ACTION_TYPES.SET_SORT_OPTION:
       return {
         ...state,
-        sortOption: action.payload,
+        sortOption: action.payload || 'year-asc',
         openDropdowns: { ...state.openDropdowns, 'Sort By': false }
       };
     
     case ACTION_TYPES.TOGGLE_DROPDOWN:
+      if (!action.payload) {
+        console.warn('Invalid TOGGLE_DROPDOWN payload:', action.payload);
+        return state;
+      }
+      
       return {
         ...state,
         openDropdowns: {
@@ -167,6 +238,11 @@ export const appReducer = (state, action) => {
       };
       
     case ACTION_TYPES.TOGGLE_EXPANDED_STUDY: {
+      if (!action.payload) {
+        console.warn('Invalid TOGGLE_EXPANDED_STUDY payload:', action.payload);
+        return state;
+      }
+      
       const newExpandedStudies = new Set(state.expandedStudies);
       
       if (newExpandedStudies.has(action.payload)) {
@@ -182,6 +258,7 @@ export const appReducer = (state, action) => {
       return { ...state, showDataStats: !state.showDataStats };
       
     default:
+      console.warn('Unknown action type:', action.type);
       return state;
   }
 };

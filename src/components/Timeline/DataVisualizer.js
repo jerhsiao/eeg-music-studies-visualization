@@ -1,17 +1,7 @@
 import React, { useMemo } from 'react';
 import { useData } from '../../utils/DataContext';
 
-const DataVisualizer = ({
-  selectedMetric,
-  timeBreakdown,
-  timelineHeight,
-  startYear,
-  endYear,
-  calculatePosition
-}) => {
-  const { data, searchQuery, activeFilters } = useData();
-
-  const visualizationMetrics = [
+const visualizationMetrics = [
     { 
       key: 'Stimulus Type', 
       label: 'Stimulus Type',
@@ -44,6 +34,16 @@ const DataVisualizer = ({
     }
   ];
 
+const DataVisualizer = ({
+  selectedMetric,
+  timeBreakdown,
+  timelineHeight,
+  startYear,
+  endYear,
+  calculatePosition
+}) => {
+  const { studies, searchQuery, activeFilters } = useData();
+
   const getParticipantRange = (participantValue) => {
     if (participantValue <= 0) return null;
     if (participantValue <= 10) return '1-10';
@@ -68,12 +68,12 @@ const DataVisualizer = ({
 
   const currentMetricData = useMemo(() => {
     const metric = visualizationMetrics.find(m => m.key === selectedMetric);
-    if (!metric) return { data: {}, maxCount: 0, categories: [] };
+    if (!metric) return { counts: {}, maxCount: 0, categories: [] };
 
     const counts = {};
     let categories = [];
 
-    let filteredStudies = [...data.studies];
+    let filteredStudies = [...studies];
     
     filteredStudies = filteredStudies.filter(study => 
       study.year >= startYear && study.year <= endYear
@@ -225,7 +225,7 @@ const DataVisualizer = ({
     const maxCount = Math.max(...Object.values(counts), 1);
 
     return { data: counts, maxCount, categories };
-  }, [selectedMetric, data.studies, startYear, endYear, searchQuery, activeFilters]);
+  }, [selectedMetric, studies, startYear, endYear, searchQuery, activeFilters]);
 
   const timeSeriesData = useMemo(() => {
     if (!timeBreakdown) return null;
@@ -242,7 +242,7 @@ const DataVisualizer = ({
       });
     }
 
-    let filteredStudies = [...data.studies];
+    let filteredStudies = [...studies];
     
     if (searchQuery.trim() !== '') {
       const query = searchQuery.toLowerCase();
@@ -363,7 +363,7 @@ const DataVisualizer = ({
     });
 
     return yearData;
-  }, [timeBreakdown, selectedMetric, currentMetricData.categories, data.studies, startYear, endYear, searchQuery, activeFilters]);
+  }, [timeBreakdown, selectedMetric, currentMetricData.categories, studies, startYear, endYear, searchQuery, activeFilters]);
 
   const generateGridLines = () => {
     const lines = [];

@@ -183,7 +183,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .controls-top {
     justify-content: center;

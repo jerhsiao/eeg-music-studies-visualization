@@ -1,9 +1,8 @@
 import React from 'react';
 import Main from './components/Main/Main';
 import { DataProvider } from './utils/DataContext';
-import './styles/variables.css';
-import './styles/layout.css';
-import './styles/common.css';
+import './styles/styles.css';
+
 
 function App() {
   return (
