@@ -32,6 +32,7 @@ This tool addresses this challenge by:
 
 ### Advanced Multi-Dimensional Filtering
 - **Categorical Filters**: Dropdown selections for Paradigm Type (Controlled/Naturalistic), Stimulus Type (11+ categories from controlled tones to complete musical pieces), and standardized Musical Training levels (Extensive (10+ years), Moderate (5-10 years), Minimal (< 5 years), Mixed Groups, etc.)
+- **Database Filtering**: Filter quickly by publicly available databases
 - **Searchable Technical Specs**: Autocomplete fields for EEG Systems (35+ documented systems) and Channel Counts with intelligent grouping of variant descriptions
 - **Participant Demographics**: Filter by count ranges (1-10, 11-25, 26-50, 51-100, 100+) and training backgrounds
 - **Intelligent Feature Analysis**: Organized into 5 research-relevant categories:

@@ -36,10 +36,11 @@
 }
 
 .version-info {
-  font-size: var(--text-xs);
+  font-size: 0.6rem;
   position: absolute;
   color: var(--gray-600);
   right: var(--space-sm);
+  margin-top: 0.3rem;
 }
 
 .how-to-use h3 {

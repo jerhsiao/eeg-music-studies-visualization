@@ -47,7 +47,7 @@
   --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Base Styles */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -116,7 +116,7 @@ code {
   gap: var(--space-md);
 }
 
-/* Loading and error states */
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -219,7 +219,7 @@ code {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Tags */
+
 .tag {
   display: inline-flex;
   align-items: center;
@@ -248,7 +248,7 @@ code {
   color: var(--gray-700);
 }
 
-/* Cards */
+
 .card {
   background-color: white;
   border-radius: var(--radius-lg);
