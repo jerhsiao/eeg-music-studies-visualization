@@ -31,7 +31,7 @@ This tool addresses this challenge by:
 - **Expandable Study Cards**: Comprehensive study information with collapsible detailed methodology sections
 
 ### Advanced Multi-Dimensional Filtering
-- **Categorical Filters**: Dropdown selections for Paradigm Type (Controlled/Naturalistic), Stimulus Type (11+ categories from controlled tones to complete musical pieces), and standardized Musical Training levels (Extensive, Moderate, Minimal, Mixed Groups, etc.)
+- **Categorical Filters**: Dropdown selections for Paradigm Type (Controlled/Naturalistic), Stimulus Type (11+ categories from controlled tones to complete musical pieces), and standardized Musical Training levels (Extensive (10+ years), Moderate (5-10 years), Minimal (< 5 years), Mixed Groups, etc.)
 - **Searchable Technical Specs**: Autocomplete fields for EEG Systems (35+ documented systems) and Channel Counts with intelligent grouping of variant descriptions
 - **Participant Demographics**: Filter by count ranges (1-10, 11-25, 26-50, 51-100, 100+) and training backgrounds
 - **Intelligent Feature Analysis**: Organized into 5 research-relevant categories:
@@ -104,6 +104,10 @@ This tool addresses this challenge by:
 
 **Sorting & Organization**: Change result order using the Sort dropdown, with options for chronological, participant count, and passage length sorting that intelligently handles missing data.
 
+**Testing**: `dataProcessing.test.js` tests data processing and normalization from the CSV to what the user sees on screen. It ensures that data is correctly mapped, processed, and standardized. 
+
+**Adding to Database**: If you would like to add studies to the database, check out DataInputGuidelines.md on instructions for standard language, structure, and validating the data format.
+
 ## Database Statistics
 
 - **Total Entries**: 197 experimental conditions
@@ -165,10 +169,10 @@ Musical features are automatically categorized into standardized groups:
 The application is organized into modular React components:
 
 - **Main**: Top-level component handling overall layout, data loading, and coordination of subcomponents.
-- **StudyCard**: Displays an individual study’s details, with expandable sections for more information.
+- **StudyCard**: Displays an individual study's details, with expandable sections for more information.
 - **TimelineContainer**: Orchestrates the timeline view and embedded data visualizer. It now replaces the old single `Timeline` component.
   - **TimelineBar**: Renders the year-by-year bars that show how many studies fall into each year.
-  - **DataVisualizer**: Displays a metric-based breakdown (e.g., “Musical Training,” “Stimulus Type,” etc.) as stacked bars or grouped charts.
+  - **DataVisualizer**: Displays a metric-based breakdown (e.g., "Musical Training," "Stimulus Type," etc.) as stacked bars or grouped charts.
   - **VisualizationControls**: Provides UI controls (metric selector, time-breakdown toggle, etc.) for driving `DataVisualizer`.
 - **FilterComponents**: Comprehensive filtering UI, including:
   - **StandardFilter** (dropdown selections)
@@ -176,6 +180,9 @@ The application is organized into modular React components:
   - **MusicalFeaturesFilter** (multi-select feature categories)
   - **SortOptionsFilter** (sorting choices: year, participants, passage length, etc.)
   - **YearRangeFilter** (start/end year sliders or inputs)
+- **Testing**: Data validation and testing utilities:
+  - **dataProcessing.test.js**: Comprehensive unit tests for data processing functions
+  - **dataValidation.js**: Run with npm run validate to check the validity and structure of the database. 
 
 ### State Management
 

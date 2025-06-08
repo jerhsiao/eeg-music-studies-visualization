@@ -1,3 +1,5 @@
+import { logger } from './Logger';
+
 export const ACTION_TYPES = {
   DATA_LOAD_START: 'DATA_LOAD_START',
   DATA_LOAD_SUCCESS: 'DATA_LOAD_SUCCESS',
@@ -90,7 +92,7 @@ export const appReducer = (state, action) => {
       const { studies, metadata } = action.payload || {};
       
       if (!studies || !Array.isArray(studies)) {
-        console.error('Invalid studies data in payload:', action.payload);
+        logger.error('Invalid studies data in payload', { payload: action.payload });
         return {
           ...state,
           data: { 
@@ -161,7 +163,7 @@ export const appReducer = (state, action) => {
 
     case ACTION_TYPES.SET_FILTER:
       if (!action.payload || !action.payload.category) {
-        console.warn('Invalid SET_FILTER payload:', action.payload);
+        logger.warn('Invalid SET_FILTER payload', { payload: action.payload });
         return state;
       }
       
@@ -175,7 +177,7 @@ export const appReducer = (state, action) => {
       
     case ACTION_TYPES.TOGGLE_FILTER:
       if (!action.payload || !action.payload.category || action.payload.value === undefined) {
-        console.warn('Invalid TOGGLE_FILTER payload:', action.payload);
+        logger.warn('Invalid TOGGLE_FILTER payload', { payload: action.payload });
         return state;
       }
       
@@ -190,7 +192,7 @@ export const appReducer = (state, action) => {
     
     case ACTION_TYPES.REMOVE_FILTER:
       if (!action.payload || !action.payload.category || action.payload.value === undefined) {
-        console.warn('Invalid REMOVE_FILTER payload:', action.payload);
+        logger.warn('Invalid REMOVE_FILTER payload', { payload: action.payload });
         return state;
       }
       
@@ -219,7 +221,7 @@ export const appReducer = (state, action) => {
     
     case ACTION_TYPES.TOGGLE_DROPDOWN:
       if (!action.payload) {
-        console.warn('Invalid TOGGLE_DROPDOWN payload:', action.payload);
+        logger.warn('Invalid TOGGLE_DROPDOWN payload', { payload: action.payload });
         return state;
       }
       
@@ -239,7 +241,7 @@ export const appReducer = (state, action) => {
       
     case ACTION_TYPES.TOGGLE_EXPANDED_STUDY: {
       if (!action.payload) {
-        console.warn('Invalid TOGGLE_EXPANDED_STUDY payload:', action.payload);
+        logger.warn('Invalid TOGGLE_EXPANDED_STUDY payload', { payload: action.payload });
         return state;
       }
       
@@ -258,7 +260,7 @@ export const appReducer = (state, action) => {
       return { ...state, showDataStats: !state.showDataStats };
       
     default:
-      console.warn('Unknown action type:', action.type);
+      logger.warn('Unknown action type:', action.type);
       return state;
   }
 };

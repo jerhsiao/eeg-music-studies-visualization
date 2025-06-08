@@ -100,7 +100,7 @@ export const SearchableFilter = ({ category, options, placeholder }) => {
       type: ACTION_TYPES.TOGGLE_FILTER,
       payload: {
         category: category.key,
-        values: option
+        value: option
       }
     });
     
@@ -424,9 +424,9 @@ export const FilterContainer = () => {
   ];
   
   const standardTrainingCategories = [
-    'Extensive Training',
-    'Moderate Training',
-    'Minimal Training',
+    'Extensive Training (+10 years)',
+    'Moderate Training (5-10 years)',
+    'Minimal Training (1-5 years)',
     'Mixed Groups',
     'No Formal Training',
     'Not Reported',

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect, useMemo } from
 import { appReducer, initialState, ACTION_TYPES } from './appReducer';
 import { applyFilters, sortFunctions } from './dataProcessing';
 import { csvLoader } from './csvDataLoader';
+import { logger } from './Logger';
 
 const DataContext = createContext();
 
@@ -37,32 +38,16 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        console.log('Starting data load...');
         dispatch({ type: ACTION_TYPES.DATA_LOAD_START });
-        
         const result = await csvLoader.loadStudies();
-        console.log('Data loaded successfully:', result);
-        
-        if (!result || !result.studies || !Array.isArray(result.studies)) {
-          throw new Error('Invalid data structure returned from CSV loader');
-        }
-        
-        dispatch({ 
-          type: ACTION_TYPES.DATA_LOAD_SUCCESS, 
-          payload: result
-        });
-        
-      } catch (error) {
-        console.error("Error loading CSV data:", error);
-        dispatch({ 
-          type: ACTION_TYPES.DATA_LOAD_ERROR, 
-          payload: error.message || 'Unknown error occurred while loading data'
-        });
+        dispatch({ type: ACTION_TYPES.DATA_LOAD_SUCCESS, payload: result });
+       } catch (error) {
+        logger.error('Data loading failed in DataContext', { error: error.message });
+        dispatch({ type: ACTION_TYPES.DATA_LOAD_ERROR, payload: error.message });
       }
     };
-    
     loadData();
-  }, []);
+}, []);
   
   const expandedStudiesSet = useMemo(() => {
     if (expandedStudies instanceof Set) {
@@ -89,7 +74,7 @@ export const DataProvider = ({ children }) => {
       const sortFn = sortFunctions[sortOption] || sortFunctions['year-asc'];
       return filtered.sort(sortFn);
     } catch (error) {
-      console.error('Error filtering studies:', error);
+      logger.error('Error filtering studies', { error: error.message });
       return studies; 
     }
   }, [studies, searchQuery, activeFilters, startYear, endYear, sortOption]);
@@ -127,7 +112,7 @@ export const DataProvider = ({ children }) => {
       });
       return counts;
     } catch (error) {
-      console.error('Error calculating filtered counts by year:', error);
+      logger.error('Error calculating filtered counts by year', { error: error.message });
       return studyCountsByYear;
     }
   }, [studies, searchQuery, activeFilters, studyCountsByYear]);
@@ -153,7 +138,7 @@ export const DataProvider = ({ children }) => {
       
       return outsideRange.length > 0 ? outsideRange : null;
     } catch (error) {
-      console.error('Error calculating studies outside range:', error);
+      logger.error('Error calculating studies outside range', { error: error.message });
       return null;
     }
   }, [studies, activeFilters, searchQuery, startYear, endYear]);
@@ -186,7 +171,7 @@ export const DataProvider = ({ children }) => {
         dispatch({ type: ACTION_TYPES.DATA_LOAD_SUCCESS, payload: result });
         return result;
       } catch (error) {
-        console.error('Error reloading data:', error);
+        logger.error('Error reloading data', { error: error.message });
         dispatch({
           type: ACTION_TYPES.DATA_LOAD_ERROR,
           payload: error.message || 'Unknown error occurred while loading data'
