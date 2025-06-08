@@ -130,6 +130,21 @@ const DataVisualizer = ({
             return range && selectedValues.includes(range);
           });
         }
+        else if (category === 'Dataset') {
+          filteredStudies = filteredStudies.filter(study => {
+            const hasDataset = study['Dataset'] && 
+                              study['Dataset'].trim() !== '' && 
+                              study['Dataset'].toLowerCase() !== 'na' &&
+                              study['Dataset'].toLowerCase() !== 'not specified' &&
+                              study['Dataset'].toLowerCase() !== 'not reported';
+            
+            if (selectedValues.includes('Publicly Available Datasets')) {
+              return hasDataset;
+            }
+            
+            return true; 
+          });
+        }
         else {
           filteredStudies = filteredStudies.filter(study => {
             if (!study[category]) return false;

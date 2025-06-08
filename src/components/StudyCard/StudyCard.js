@@ -201,7 +201,7 @@ const StudyCard = ({ study }) => {
                 
                 {study['Musical Training'] && (
                   <div className="detail-item">
-                    <span className="detail-label">Musical Training:</span> {study['Musical Training']}
+                    <span className="detail-label">Musical Training:</span> {formatList(study['Musical Training'])}
                   </div>
                 )}
               </div>

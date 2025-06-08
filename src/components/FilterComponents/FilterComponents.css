@@ -453,6 +453,28 @@
   transform: translateY(1px);
 }
 
+.dataset-filter-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dataset-filter-btn {
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dataset-filter-btn.active,
+.dataset-filter-btn:hover {
+  background-color: var(--secondary-dark);
+}
+
 @media (max-width: 1200px) {
   .filter-row-top {
     flex-wrap: wrap;

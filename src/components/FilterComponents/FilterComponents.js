@@ -423,10 +423,10 @@ export const FilterContainer = () => {
     { key: 'Participant Range', label: 'Participant Count' }
   ];
   
-  const standardTrainingCategories = [
-    'Extensive Training (+10 years)',
-    'Moderate Training (5-10 years)',
-    'Minimal Training (1-5 years)',
+    const standardTrainingCategories = [
+    'Extensive Training',
+    'Moderate Training',
+    'Minimal Training',
     'Mixed Groups',
     'No Formal Training',
     'Not Reported',
@@ -549,6 +549,20 @@ export const FilterContainer = () => {
           />
         </div>
         
+        <div className="dataset-filter-container">
+          <button
+            className={`dataset-filter-btn ${(activeFilters['Dataset'] || []).includes('Available') ? 'active' : ''}`}
+            onClick={() => {
+              dispatch({
+                type: ACTION_TYPES.TOGGLE_FILTER,
+                payload: { category: 'Dataset', value: 'Publicly Available Datasets' }
+              });
+            }}
+          >
+            Filter for publicly available datasets
+          </button>
+        </div>
+
         {Object.keys(activeFilters).length > 0 && (
           <div className="active-filters-summary">
             {Object.entries(activeFilters).map(([category, values]) => (

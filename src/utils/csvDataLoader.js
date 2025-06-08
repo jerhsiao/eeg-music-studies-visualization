@@ -47,17 +47,47 @@ class CSVDataLoader {
         throw new Error('CSV file is empty or could not be read');
       }
       
+      const rawLines = csvText.split('\n').filter(line => line.trim());
+      console.log(`Raw CSV lines: ${rawLines.length} (including header)`);
+      console.log(`Expected data rows: ${rawLines.length - 1}`);
+      
+      const firstLine = rawLines[0] || '';
+      const tabCount = (firstLine.match(/\t/g) || []).length;
+      const commaCount = (firstLine.match(/,/g) || []).length;
+      
+      console.log(`Delimiter detection: ${tabCount} tabs, ${commaCount} commas`);
+      const delimiter = tabCount > commaCount ? '\t' : ',';
+      console.log(`Using delimiter: ${delimiter === '\t' ? 'TAB' : 'COMMA'}`);
+      
       return new Promise((resolve, reject) => {
         Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true,
-          dynamicTyping: false, 
-          delimitersToGuess: [',', '\t', '|', ';'],
+          dynamicTyping: false,
+          delimiter: delimiter, 
+          quoteChar: '"',
+          escapeChar: '"',
           complete: (results) => {
             try {
               console.log('CSV parsing complete');
               console.log('Headers found:', results.meta.fields);
-              console.log('Total rows:', results.data.length);
+              console.log('Papa.parse returned rows:', results.data.length);
+              
+              // Check if Papa.parse dropped any rows
+              const expectedRows = rawLines.length - 1; // minus header
+              const actualRows = results.data.length;
+              if (expectedRows !== actualRows) {
+                console.warn(`PARSING DISCREPANCY: Expected ${expectedRows} rows, got ${actualRows} rows`);
+                console.warn(`Papa.parse dropped ${expectedRows - actualRows} rows during parsing`);
+                
+                // Log parsing errors if any
+                if (results.errors && results.errors.length > 0) {
+                  console.error('Papa.parse errors:', results.errors);
+                }
+              } else {
+                console.log('✓ All rows parsed successfully');
+              }
+              
               console.log('Sample row:', results.data[0]);
               
               if (!results.data || results.data.length === 0) {
@@ -140,6 +170,7 @@ class CSVDataLoader {
       console.error('Error generating filter options:', error);
       filterOptions = {};
     }
+
 
     const years = studies.map(s => s.year).filter(y => y > 0);
     const yearRange = years.length > 0 ? {

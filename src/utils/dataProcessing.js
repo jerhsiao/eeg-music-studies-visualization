@@ -95,10 +95,9 @@ export function parsePassageLength(lengthStr) {
     .replace(/[~≈]/g, '') 
     .replace(/\(.*?\)/g, '') 
     .replace(/total|each|per trial|averaged?/gi, '') 
-    .replace(/,/g, '.') // European decimal notation
     .trim();
   
-  // "X minutes Y seconds" format
+  // x minutes y seconds
   const minutesSecondsMatch = cleanStr.match(/(\d+(?:\.\d+)?)\s*(?:min|minute)s?\s*(?:and\s+)?(\d+(?:\.\d+)?)\s*(?:sec|second)s?/i);
   if (minutesSecondsMatch) {
     const minutes = parseFloat(minutesSecondsMatch[1]);
@@ -106,7 +105,7 @@ export function parsePassageLength(lengthStr) {
     return minutes * 60 + seconds;
   }
   
-  // "MM:SS" format
+  // mm:ss
   const timeMatch = cleanStr.match(/(\d+):(\d+)(?::(\d+))?/);
   if (timeMatch) {
     const minutes = parseInt(timeMatch[1], 10);
@@ -120,7 +119,7 @@ export function parsePassageLength(lengthStr) {
     return minutes * 60 + seconds;
   }
   
-  // Handle abbreviated formats like "2m30s"
+  // for stuff like "2m30s"
   const abbreviatedMatch = cleanStr.match(/(\d+(?:\.\d+)?)m(?:in)?(?:\s*(\d+(?:\.\d+)?)s(?:ec)?)?/i);
   if (abbreviatedMatch) {
     const minutes = parseFloat(abbreviatedMatch[1]);
@@ -414,6 +413,19 @@ export const applyFilters = (studies, filters) => {
             case 'normalizedFeatures':
               return study[category]?.some?.(feature => selectedValues.includes(feature));
               
+            case 'Dataset': {
+              const hasDataset = study['Dataset'] && 
+                                study['Dataset'].trim() !== '' && 
+                                study['Dataset'].toLowerCase() !== 'na' &&
+                                study['Dataset'].toLowerCase() !== 'not specified' &&
+                                study['Dataset'].toLowerCase() !== 'not reported';
+
+              if (selectedValues.includes('Publicly Available Datasets')) {
+                return hasDataset;
+              }
+              
+              return true;
+            }  
             default: {
               const studyValue = study[category];
               if (!studyValue) return false;
